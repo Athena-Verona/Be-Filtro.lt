@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Be-Filtro.lt | Prisijungimas</title>
+
+</head>
+<body>
+    <div class="main">
+        <div class="logo">
+            <p>Be-<br>Filtro<br>.lt</p>
+        </div>
+        <h1 class="main-text"> Prisijungti </h1>
+        <div class="hr"></div>
+        <form action="/action_page.php" method="post">
+            <div class="container">
+                <div class="email">
+                    <img class="inline-block" src="user.svg">
+                    <input class="inline-block" type="text" placeholder="Elektroninis paštas" name="email" required>
+                </div>
+                
+                <div class="psw">
+                    <img src="lock.svg">
+                    <input type="password" placeholder="Slaptažodis" name="psw" required>
+                </div>
+                
+                <button type="submit">Prisijungti</button><br>
+
+                <div class="reg">
+                    <p> Neturite paskyros? <a href="registration.html">Registracija</a></p>
+                </div>
+                
+            </div>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $(function(){ 
+                $('.main').hide().fadeIn('slow');
+            });
+        });
+    </script>
+    
+</body>
+</html>
