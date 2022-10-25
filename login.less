@@ -1,25 +1,7 @@
 // compress: true
 
 // Main style
-* {
-    margin: 0;
-    padding: 0;
-    font-family: Inconsolata;
-}
-body,
-html {
-    width: 100%;
-    height: 100%;
-    background-color: #15616D !important;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-}
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-    outline: none;
-}
+@import "main-style";
 
 // Misc style
 .main {
@@ -86,20 +68,18 @@ button:focus {
                 padding: 10px 30px 10px 30px;
                 border-radius: 17px;
                 z-index: 2;
+                &:hover {cursor: pointer;}
             }
             .reg {
                 padding: 30px 0 0 0;
                 a {
                     color: #001524;
                     transition: 0.7s;
-                    &:hover {
-                        color: #FF7D00;
-                    }
+                    &:hover {color: #FF7D00;}
                 }
             }
         }
     }
-    
 }
 
 // Compatibility
@@ -165,12 +145,8 @@ button:focus {
             font-size: 21px;
             padding-right: 0;
         }
-        h1 {
-            font-size: 70px;
-        }
-        .hr {
-            width: 420px;
-        }
+        h1 {font-size: 70px;}
+        .hr {width: 420px;}
         form {
             .container {
                 .email {img {margin-top: 9.5%;}}
@@ -195,7 +171,5 @@ button:focus {
     }
 }
 @media only screen and (min-width: 1920px) {
-    .main {
-        padding: 7% 5% 4% 5%;
-    }
+    .main {padding: 7% 5% 4% 5%;}
 }
