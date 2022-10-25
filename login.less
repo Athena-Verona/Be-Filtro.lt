@@ -1,5 +1,6 @@
-// compress: false
+// compress: true
 
+// Main style
 * {
     margin: 0;
     padding: 0;
@@ -12,8 +13,15 @@ html {
     background-color: #15616D !important;
     scroll-behavior: smooth;
     overflow-x: hidden;
-    /* min-height: 90%; */
 }
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+// Misc style
 .main {
     border-radius: 20px;
     position: absolute;
@@ -43,7 +51,6 @@ html {
     h1 {
         color: #001524;
         padding: 0 0 10px 0;
-        // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
     .hr {
         border: none;
