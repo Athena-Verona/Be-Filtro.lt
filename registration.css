@@ -118,9 +118,8 @@ button:focus {
     }
 
     .main .logo {
-        margin-left: auto;
-        float: left;
-        position: static;
+        position: fixed;
+        z-index: 10;
         width: 15%;
         font-size: 19px;
         padding-right: 7%
@@ -134,7 +133,7 @@ button:focus {
 
     .main .hr {
         float: right;
-        width: 335px;
+        width: 370px;
         margin: 0 0 50px 0;
         border-bottom: 1px solid #001524
     }
@@ -183,7 +182,6 @@ button:focus {
     .main {
         padding: 10% 5% 5% 5%
     }
-
     .main .logo {
         margin-left: 90px;
         width: 20%;
@@ -196,7 +194,7 @@ button:focus {
     }
 
     .main .hr {
-        width: 420px
+        width: 440px
     }
 
     .main form .container .email img {
