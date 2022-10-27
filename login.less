@@ -91,11 +91,7 @@
 }
 
 // Compatibility
-@media only screen and (max-height: 800px) {
-    @media only screen and (max-height: 800px) {
-        .main {.logo {display: none;}}  
-    }
-}
+@media (max-height: 890px) and (max-width: 830px) {.main {.logo {visibility: hidden;}}}
 @media only screen and (min-width: 768px) {
     .main {
         padding: 15% 10% 5% 10%;
@@ -147,7 +143,6 @@
                 }
             }
         }
-        
     }
 }
 @media only screen and (min-width: 1329px) {
@@ -181,10 +176,7 @@
                 }
                 a {&:hover {color: #FFECD1;}}
             }
-            
         }
     }
 }
-@media only screen and (min-width: 1920px) {
-    .main {padding: 7% 5% 4% 5%;}
-}
+@media only screen and (min-width: 1920px) {.main {padding: 7% 5% 4% 5%;}}
