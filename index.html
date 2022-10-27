@@ -13,7 +13,12 @@
     <script src="navbar.js"></script>
     <title>Be-Filtro.lt | Titulinis</title>
 </head>
-<body class="scroll-bar">
+<body>
+
+    <!-- Span for top scrolling button -->
+    <span id="top"></span>
+
+    <!-- Navbar -->
     <div id="navbar-id" class="navbar">
         <div class="grid">
             <div class="item">
@@ -37,20 +42,20 @@
         </div>
     </div>
     <div id="open-navbar-id" class="open-navbar">
-        <!-- <input type="checkbox" id="checkbox1" class="checkbox1 visuallyHidden">
-        <label for="checkbox1">
-            <div class="hamburger hamburger1">
-                <span id="navb" class="bar bar1"></span>
-                <span id="navb" class="bar bar2"></span>
-                <span id="navb" class="bar bar4"></span>
-            </div>
-        </label> -->
-        <button href="#top" id="checkbox1" class="checkbox1 visuallyHidden"> <i class="material-symbols-outlined"> menu </i> </button>
+        <button id="checkbox1" class="checkbox1 visuallyHidden"> <i class="material-symbols-outlined"> menu </i> </button>
     </div> 
+
+    <div class="text">
+        <p> </p>
+    </div>
+    <div class="cat">
+        <img src="https://i.kym-cdn.com/photos/images/newsfeed/001/366/543/eb3.jpg">
+    </div>
     <div class="text">
         <p id="fill-this-with-text-pls"> </p>
     </div>
 
-    <a href="#navbar-id" class="up"><i class="material-symbols-outlined"> keyboard_arrow_up </i></a>
+    <!-- This link scroll to the top -->
+    <a href="#top" class="up"><i class="material-symbols-outlined"> keyboard_arrow_up </i></a>
 </body>
 </html>
