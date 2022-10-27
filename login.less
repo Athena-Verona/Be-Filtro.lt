@@ -61,6 +61,7 @@
                 z-index: 1;
             }
             button {
+                transition: 0.3s;
                 margin: 20px 0 0 0;
                 border: none;
                 background-color: #001524;
@@ -68,7 +69,7 @@
                 padding: 10px 30px 10px 30px;
                 border-radius: 17px;
                 z-index: 2;
-                &:hover {cursor: pointer;}
+                &:hover {cursor: pointer; color: #FF7D00;}
             }
             .reg {
                 padding: 30px 0 0 0;
@@ -83,10 +84,14 @@
 }
 
 // Compatibility
+@media only screen and (min-width: 740px) {
+    .main {.logo {visibility: hidden;}}  
+}
 @media only screen and (min-width: 768px) {
     .main {
         padding: 15% 10% 5% 10%;
         .logo {
+            visibility: visible;
             margin-left: 70px;
             float: left;
             position: static;
@@ -165,6 +170,7 @@
                     padding: 20px 75px 20px 75px;
                     font-size: 30px;
                 }
+                a {&:hover {color: #FFECD1;}}
             }
             
         }

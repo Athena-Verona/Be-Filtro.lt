@@ -13,34 +13,44 @@
     <script src="navbar.js"></script>
     <title>Be-Filtro.lt | Titulinis</title>
 </head>
-<body>
+<body class="scroll-bar">
     <div id="navbar-id" class="navbar">
         <div class="grid">
             <div class="item">
-                <div class="logo">
+                <div class="logo" onclick="window.location='index.html';">
                     <p>Be-<br>Filtro<br>.lt</p>
                 </div>
             </div>
             <div id="search-bar" class="item">
                 <div><i id="search-icon" class="material-symbols-outlined search-icon"> search </i></div>
-                <input id="search-bar-id" type="text" placeholder="Šimonytė, TS-LKD...">
+                <input onfocus="lightUp()" onblur="turnOff()" id="search-bar-id" type="text" placeholder="Šimonytė, TS-LKD...">
             </div>
-            <div class="item"><a href="JavaScript:void(0);"> Partijos </a></div>
-            <div class="item"><a href="JavaScript:void(0);"> Testas </a></div>
+            <div class="item"><a href="#"> Partijos </a></div>
+            <div class="item"><a href="#"> Testas </a></div>
             <div class="item">
-                <button><i id="profile-icon" class="material-symbols-outlined"> badge </i> Paskyra </button>
+                <button id="profile-button"><i id="profile-icon" class="material-symbols-outlined"> badge </i> Paskyra </button>
+            </div>
+            <div class="dropdown-profile">
+                <p> <i class="material-symbols-outlined"> manage_accounts </i> Tvarkyti </p>
+                <p> <i id="logout-icon" class="material-symbols-outlined"> logout </i> Atsijungti </p>
             </div>
         </div>
     </div>
-    <div class="open-navbar">
-        <input type="checkbox" id="checkbox1" class="checkbox1 visuallyHidden">
+    <div id="open-navbar-id" class="open-navbar">
+        <!-- <input type="checkbox" id="checkbox1" class="checkbox1 visuallyHidden">
         <label for="checkbox1">
             <div class="hamburger hamburger1">
                 <span id="navb" class="bar bar1"></span>
                 <span id="navb" class="bar bar2"></span>
                 <span id="navb" class="bar bar4"></span>
             </div>
-        </label>
+        </label> -->
+        <button href="#top" id="checkbox1" class="checkbox1 visuallyHidden"> <i class="material-symbols-outlined"> menu </i> </button>
     </div> 
+    <div class="text">
+        <p id="fill-this-with-text-pls"> </p>
+    </div>
+
+    <a href="#navbar-id" class="up"><i class="material-symbols-outlined"> keyboard_arrow_up </i></a>
 </body>
 </html>
