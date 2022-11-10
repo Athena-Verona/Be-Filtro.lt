@@ -15,6 +15,7 @@
     text-align: center;
     padding: 12%;
     .logo {
+        transition: 0.3s;
         border-radius: 15px;
         position: absolute;
         top: -30%;
@@ -23,7 +24,15 @@
         transform: translate(-50%, -50%);
         background-color: #001524;
         padding: 5%;
+        &:hover {
+            cursor: pointer;
+            p {
+                color: #FF7D00;
+                cursor: pointer;
+            }
+        }
         p {
+            transition: 0.3s;
             text-align: left;
             color: #FFECD1;
             font-size: 150%;
@@ -32,7 +41,7 @@
     }
     h1 {
         color: #001524;
-        padding: 0 0 10px 0;
+        padding: 0 0 10px 0; // top right bottom left
     }
     .hr {
         border: none;
@@ -41,7 +50,7 @@
         box-shadow: 0px 10px 13px -7px #000000, 0px 1px 3px 0px rgba(0,0,0,0.62);
     }
     form {
-        padding: 20px 0 0 0;
+        padding: 20px 0 0 0; // top right bottom left
         .material-symbols-outlined {
             font-variation-settings:
             'FILL' 1,
@@ -60,7 +69,7 @@
                 margin: 10px;
                 border: none;
                 background: #D9D9D9;
-                padding: 0 0 0 15px;
+                padding: 0 0 0 15px; // top right bottom left
                 width: 200px;
                 height: 37px;
                 border-radius: 17px;
@@ -69,17 +78,17 @@
             }
             button {
                 transition: 0.3s;
-                margin: 20px 0 0 0;
+                margin: 20px 0 0 0; // top right bottom left
                 border: none;
                 background-color: #001524;
                 color: #FFECD1;
-                padding: 10px 30px 10px 30px;
+                padding: 10px 30px 10px 30px; // top right bottom left
                 border-radius: 17px;
                 z-index: 2;
                 &:hover {cursor: pointer; color: #FF7D00;}
             }
             .reg {
-                padding: 30px 0 0 0;
+                padding: 30px 0 0 0; // top right bottom left
                 a {
                     color: #001524;
                     transition: 0.7s;
@@ -94,7 +103,7 @@
 @media (max-height: 890px) and (max-width: 830px) {.main {.logo {visibility: hidden;}}}
 @media only screen and (min-width: 768px) {
     .main {
-        padding: 15% 10% 5% 10%;
+        padding: 15% 10% 5% 10%; // top right bottom left
         .logo {
             visibility: visible;
             margin-left: 70px;
@@ -112,33 +121,33 @@
         .hr {
             float: right;
             width: 335px;
-            margin: 0 0 50px 0;
+            margin: 0 0 50px 0; // top right bottom left
             border-bottom: 1px solid #001524;
         }
         form {
-            padding: 20px 0 0 0;
+            padding: 20px 0 0 0; // top right bottom left
             .container {
                 .email {img {margin-top: 11%;}}
                 .psw {img {margin-top: 5%;}}
                 img {width: 30px;}
                 input {
                     font-size: 20px;
-                    padding: 0 0 0 20px;
+                    padding: 0 0 0 20px; // top right bottom left
                     width: 460px;
                     height: 60px;
                     border-radius: 30px;
                 }
                 button {
                     font-size: 25px;
-                    margin: 35px 0 0 0;
+                    margin: 35px 0 0 0; // top right bottom left
                     border: none;
                     background-color: #001524;
                     color: #FFECD1;
-                    padding: 10px 60px 10px 60px;
+                    padding: 10px 60px 10px 60px; // top right bottom left
                     border-radius: 35px;
                 }
                 .reg {
-                    padding: 50px 0 0 0;
+                    padding: 50px 0 0 0; // top right bottom left
                     font-size: 20px;
                 }
             }
@@ -147,7 +156,7 @@
 }
 @media only screen and (min-width: 1329px) {
     .main {
-        padding: 10% 5% 5% 5%;
+        padding: 10% 5% 5% 5%; // top right bottom left
         .logo {
             margin-left: 90px;
             width: 20%;
@@ -164,14 +173,14 @@
                     margin-right: 20px;
                 }
                 input {
-                    padding: 0 0 0 30px;
+                    padding: 0 0 0 30px; // top right bottom left
                     width: 550px;
                     height: 80px;
                     border-radius: 45px;
                     font-size: 25px;
                 }
                 button {
-                    padding: 20px 75px 20px 75px;
+                    padding: 20px 75px 20px 75px; // top right bottom left
                     font-size: 30px;
                 }
                 a {&:hover {color: #FFECD1;}}
@@ -179,4 +188,4 @@
         }
     }
 }
-@media only screen and (min-width: 1920px) {.main {padding: 7% 5% 4% 5%;}}
+@media only screen and (min-width: 1920px) {.main {padding: 7% 5% 4% 5%; }} // top right bottom left
