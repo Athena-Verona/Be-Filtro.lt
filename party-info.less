@@ -152,6 +152,159 @@ body {background-color: #FFECD1 !important;}
         }
     }
 }
+.member-field {
+    margin-bottom: 50px;
+    text-align: center;
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+        "members eu-members rating"
+        "members gov-members vote"
+        "members gov-members map"; 
+}
+.members, .eu-members, .gov-members, .rating, .vote {
+    h2 {
+        // margin: 50px 200px 0 200px; // top right bottom left
+        margin: 50px auto;
+        width: 330px;
+        padding: 15px 0 15px 0; // top right bottom left
+        background-color: #FF7D00;
+        color: white;
+        font-size: 30px;
+        border-radius: 15px;
+    }
+    ul {
+        list-style-type: none;
+        margin: -20px auto; // top right bottom left
+        width: 300px;
+        text-align: left;
+        font-size: 20px;
+        li {
+            margin: 5px;
+            transition: 0.3s;
+            &:hover {
+                transition: 0.3s;
+                cursor: pointer;
+                font-size: 21px;
+                color: #FF7D00;
+            }
+        }
+    }
+}
+.members {grid-area: members;}
+.eu-members {grid-area: eu-members;}
+.gov-members {grid-area: gov-members;}
+.rating-row {
+    .rating {grid-area: rating; }
+    .vote {
+        grid-area: vote;
+        .desktop-vote {
+            .levels {
+                font-size: 0;
+                margin: 40px 0 -5px 0; // top right bottom left
+                #mega-bad {
+                    height: 40px;
+                    width: 70px;
+                    border: none;
+                    border-top-left-radius: 15px;
+                    border-bottom-left-radius: 15px;
+                    background-color: #FF4117;
+                    &::after {
+                        content: "\f194";
+                        font-family: "Material Symbols Outlined";
+                        position: sticky !important;
+                        font-weight: 400;
+                        font-size: 30px;
+                        color: white;
+                        opacity: 0;
+                        transition: 0.2s;
+                    }
+                    &:hover {
+                        cursor: pointer;
+                        transition: all 0.5s;
+                        box-shadow: 0px 0px 25px #FF4117;
+                        &::after {
+                            opacity: 1;
+                            transition: all 0.5s;
+                        }
+                    }
+                }
+                #bad {
+                    #mega-bad();
+                    border-top-left-radius: 0;
+                    border-bottom-left-radius: 0;
+                    background-color: #FF7D00;
+                    &::after {
+                        content: "\e811";
+                        font-family: "Material Symbols Outlined";
+                        position: absolute;
+                    }
+                    &:hover {box-shadow: 0px 0px 25px #FF7D00;}
+                }
+                #idk {
+                    #bad();
+                    background-color: #D9D9D9;
+                    &::after {
+                        content: "\e812";
+                        font-family: "Material Symbols Outlined";
+                        position: absolute;
+                        color: black;
+                    }
+                    &:hover {box-shadow: 0px 0px 25px #D9D9D9;}
+                }
+                #like {
+                    #idk();
+                    background-color: #FFD600;
+                    &::after {
+                        content: "\e813";
+                        font-family: "Material Symbols Outlined";
+                        position: absolute;
+                        color: white;
+                    }
+                    &:hover {box-shadow: 0px 0px 25px #FFD600;}             
+                }
+                #mega-like {
+                    #idk;
+                    border-top-right-radius: 15px;
+                    border-bottom-right-radius: 15px;
+                    background-color: #4DB02A;
+                    &::after {
+                        content: "\e7f2";
+                        font-family: "Material Symbols Outlined";
+                        position: absolute;
+                        color: white;
+                    }
+                    &:hover {box-shadow: 0px 0px 25px #4DB02A;}
+                }
+            }
+            .level-text {
+                font-size: 0;
+                #mega-bad {
+                    font-size: 12px;
+                    height: 50px;
+                    width: 70px;
+                    border: none;
+                    background-color: transparent;
+                    color: black;
+                }
+                #bad {#mega-bad();}
+                #idk {#mega-bad();}
+                #like {#mega-bad();}
+                #mega-like {#mega-bad;}
+            }
+            p {
+                display: inline-block;
+                font-size: 10px;
+                margin: -100px 0 0 0 !important; // top right bottom left
+                padding: 0 !important;
+            }
+        }
+    }
+    .map {grid-area: map;}
+}
+
 // Compatibility
 @media only screen and (max-width: 385px) {
     .party-header {
@@ -204,15 +357,66 @@ body {background-color: #FFECD1 !important;}
         }
     }
 }
-@media only screen and (min-width: 1055px) { 
-    .party-header {
-        .header-objects {
-            p {
-                padding: 30px 20px 70px 20px // top right bottom left
+@media only screen and (max-width: 700px) { 
+    .member-field {
+        grid-template-columns: 1fr !important; 
+        grid-template-rows: 1fr 0.5fr 0fr !important; 
+        gap: 0px 0px; 
+        grid-template-areas: 
+            "members"
+            "eu-members"
+            "gov-members" !important; 
+        .members {grid-area: members;}
+        .eu-members {grid-area: eu-members;}
+        .gov-members {grid-area: gov-members;}
+    }
+}
+@media only screen and (max-width: 1023px) { 
+    .member-field {
+        grid-template-columns: 1fr 1fr; 
+        grid-template-rows: 1fr 1fr; 
+        grid-template-areas: 
+            "members eu-members"
+            "members gov-members"
+            "members gov-members"; 
+        .gov-members {margin-top: -400px;}
+        .rating-row {
+            .rating {h2 {display: none;}}
+            .vote {
+                h2 {display: none;}
+                .desktop-vote {display: none;}
             }
         }
     }
 }
+@media only screen and (max-width: 1130px) { 
+    .rating-row {
+        .vote {
+            .desktop-vote {
+                .levels {
+                    #mega-bad {width: 60px !important;}
+                    #bad {#mega-bad();}
+                    #idk {#mega-bad();}
+                    #like {#mega-bad();}
+                    #mega-like {#mega-bad();}
+                }
+                .level-text {
+                    #mega-bad {
+                        font-size: 12px;
+                        width: 60px; 
+                    }
+                    #bad {#mega-bad();}
+                    #idk {#mega-bad();}
+                    #like {#mega-bad();}
+                    #mega-like {#mega-bad();}
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width: 1055px) {
+    .party-header {.header-objects {p {padding: 30px 20px 70px 20px}}}
+}                                            // top right bottom left
 @media only screen and (min-width: 1055px) { 
     .party-header {
         .header-objects {
@@ -227,4 +431,6 @@ body {background-color: #FFECD1 !important;}
         }
     }
 }
-@media only screen and (min-width: 1280px) {.party-header {.header-objects {img {margin: 30px 30px 30px 30px;}}}} // top right bottom left
+@media only screen and (min-width: 1280px) {
+    .party-header {.header-objects {img {margin: 30px 30px 30px 30px;}}}
+}                                             // top right bottom left
