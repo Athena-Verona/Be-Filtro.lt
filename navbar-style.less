@@ -1,11 +1,12 @@
 // compress: true
 
 .navbar {
+    z-index: 1;
     position: fixed;
     width: 100%;
     display: none;
     background-color: #15616D;
-    padding: 0 0 20px 0;
+    padding: 0 0 20px 0; // top right bottom left
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     .grid {
         .item {
@@ -35,7 +36,7 @@
                 border: none;
                 background: #FFECD1;
                 color: #001524;
-                padding: 0 15px 0 55px;
+                padding: 0 15px 0 55px; // top right bottom left
                 width: 260px;
                 height: 60px;
                 border-radius: 35px;
@@ -53,7 +54,7 @@
                 transition: 0.3s;
                 border: none;
                 width: 190px;
-                padding: 15px 10px 15px 10px;
+                padding: 15px 10px 15px 10px; // top right bottom left
                 background-color: #001524;
                 color: #FFECD1;
                 font-size: 30px;
@@ -81,7 +82,7 @@
             border-radius: 10px;
             filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
             p {
-                padding: 15px 10px 15px 10px;
+                padding: 15px 10px 15px 10px; // top right bottom left
                 transition: 0.3s;
                 color: #FFECD1;
                 font-size: 30px;
@@ -103,7 +104,7 @@
     z-index: 1;
     button {
         transition: 0.3s;
-        padding: 0 5% 0 5%;
+        padding: 0 5% 0 5%; // top right bottom left
         border: none;
         background-color: #15616D;
         border-bottom-right-radius: 10px;
@@ -120,7 +121,7 @@
     }
 }
 
-// Compatibility
+// Screen size compatibility
 @media only screen and (min-width: 250px) {
     .navbar {.grid {.item {#search-icon {left: -95px;} input {width: 180px;}}}}
 }
@@ -142,7 +143,7 @@
                     font-size: 50px !important;
                 } 
                 input {
-                    padding: 0 15px 0 65px;
+                    padding: 0 15px 0 65px; // top right bottom left
                     width: 450px;
                     height: 70px;
                     border-radius: 50px;
@@ -170,23 +171,25 @@
         }
     }
 }
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 1280px) { 
+    // Navbar for desktop
     .navbar {
+        position: relative;
         display: inline-block !important;
-        margin: 0 0 0 0;
-        padding: 0 0 0 0;
+        margin: 0 0 0 0; // top right bottom left
+        padding: 0 0 0 0; // top right bottom left
         width: 100%;
         .grid {
             .item {
                 display: inline-block;
-                padding: 0 0 10px 0;
+                padding: 0 0 10px 0; // top right bottom left
                 .logo {
                     display: inline-block;
                     border-radius: 15px;
-                    background-color: #001524;
-                    padding: 20% 5% 20% 20%;
+                    background-color: #001524; 
+                    padding: 20% 5% 20% 20%; // top right bottom left
                     width: 100%;
-                    margin: 10px 0 0 10px;
+                    margin: 10px 0 0 10px; // top right bottom left
                     &:hover {
                         cursor: pointer;
                         p {
@@ -212,7 +215,7 @@
                     position: relative;
                     left: 75px;
                     top: -20px;
-                    padding: 0 15px 0 70px;
+                    padding: 0 15px 0 70px; // top right bottom left
                     width: 350px;
                     height: 60px;
                     border-radius: 35px;
@@ -224,7 +227,7 @@
                     top: -20px;
                     left: 80px;
                     font-size: 40px;
-                    padding: 0 0 10px 50px;
+                    padding: 0 0 10px 50px; // top right bottom left
                     &:after {
                         content: '';
                         position: absolute;
@@ -264,7 +267,7 @@
             .dropdown-profile {
                 position: absolute !important;
                 top: 110px;
-                right: 24px;
+                right: 10px;
                 margin-right: 0;
                 text-align: right;
                 width: 250px;
@@ -272,7 +275,7 @@
                 border-radius: 15px;
                 filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) !important;
                 p {
-                    padding: 15px 10px 15px 10px;
+                    padding: 15px 10px 15px 10px; // top right bottom left
                     transition: 0.3s;
                     color: #FFECD1;
                     font-size: 35px;

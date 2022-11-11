@@ -5,10 +5,10 @@
     padding: 0;
     font-family: Inconsolata;
 }
-// Scrollbar style (FireFox support only)
 body {
+    // Scrollbar style (FireFox support only)
     overflow-y: scroll;
-    scrollbar-color: #001524 #15616D;
+    scrollbar-color: #15616D #001524;
     scrollbar-width: thin;
 }
 // Scrollbar style (Does not support FireFox)
@@ -16,6 +16,7 @@ body {
 ::-webkit-scrollbar-track {background-color: #15616D;}
 ::-webkit-scrollbar-thumb {background-color: #001524;}
 
+// Body structure template
 body, html {
     width: 100%;
     height: 100%;
@@ -26,9 +27,7 @@ body, html {
 input:focus,
 select:focus,
 textarea:focus,
-button:focus {
-    outline: none;
-}
+button:focus {outline: none;}
 
 // Scroll up button
 .up {
