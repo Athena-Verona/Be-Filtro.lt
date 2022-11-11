@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,15 +24,15 @@
             <div class="container">
                 <div class="name">
                     <img class="inline-block" src="user.svg">
-                    <input class="inline-block" type="text" id= "only_name" placeholder="Vardas" name="name" required>
+                    <input class="inline-block" type="text" placeholder="Vardas" name="name" required>
                 </div>
                 <div class="email">
                     <img class="inline-block" src="email.svg">
-                    <input class="inline-block" type="text" id="email" placeholder="Elektroninis paštas" name="email" required>
+                    <input class="inline-block" type="text" placeholder="Elektroninis paštas" name="email" required>
                 </div>
                 <div class="psw">
                     <img src="lock.svg">
-                    <input type="password" id="password" placeholder="Slaptažodis" name="psw" required>
+                    <input type="password" placeholder="Slaptažodis" name="psw" required>
                 </div>
                 <div class="psw">
                     <img src="lock.svg">
@@ -58,130 +59,5 @@
     </script>
 
 </body>
-
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-analytics.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    src =  "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
-    src =  "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
-   
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyBjTkbvIAZfgp_thRlFqVlN8NcGkV5ge1Y",
-      authDomain: "be-filtro.firebaseapp.com",
-      databaseURL: "https://be-filtro-default-rtdb.europe-west1.firebasedatabase.app",
-      projectId: "be-filtro",
-      storageBucket: "be-filtro.appspot.com",
-      messagingSenderId: "200756039756",
-      appId: "1:200756039756:web:77139961e9a5d07fe0a4e9",
-      measurementId: "G-HJNDBTJ9J1"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-  
-
-
-   // initialize variables
-  const auth = firebase.auth()
-  const database = firebase.database()
-   //register function
- function submit() { 
-         // get all our input fields
-          only_name = document.getElementById('only_name').value
-          email = document.getElementById('email').value
-          password = document.getElementById('password').value
-      
-  
-          //validate input fields
-          if(validate_email(email) == false || validate_password(password) == false)
-          {
-              alert ('Elektroninis paštas arba slaptažodis yra už linijų ribų')
-              return
-              // don't run the code anymore
-          }
-          if(validate_fields(only_name) == false)
-  
-  
-          {
-              alert ('Vardas yra už linijos ribų')
-              return
-              // don't run the code anymore
-          }
-      
-          auth.createUserWihtEmailAndPassword(email, password)
-          .then(function(){
-  
-              //Decalre user variable
-              var use = auth.currentUser
-              // Add this user to Firebase Database
-              var database_ref = database.ref()
-  
-              // Create User data
-              var user_data = {
-                  email: email,
-                  only_name : only_name,
-                  last_login : Date.now()
-              }
-              database_ref.child('users/' + user.uid).set(user_data)
-  
-  
-              alert('User Created')
-          })
-          .catch(function(error){
-              // Firebase will use this to alert errors
-              var error_code = error.code
-              var error_message = error.message
-              elert (error_message)
-          })
-      }
-  
-  function validate_email(email)
-      {
-          expression = /^[^@]+@\w+(\.\w+)+\w$/
-          if (expression.test(email) == true)
-          {
-              //Email is good
-              return true
-          }
-          else{
-              return false
-          }
-      }
-  
-   function validate_password(password)
-      { //Firebase only accepts lenghts greater than 6
-          if (pawwsord < 6)
-          {
-              return false
-          }
-          else {
-              return true
-          }
-      }
-  
-   function validate_fields(field)
-      {
-        if (field == null)
-        {
-            return false
-        }
-        if (field.lenght <= 0)
-        {
-            return false
-        }
-        else 
-        {
-            return true
-        }
-      }
-
-  </script>
 
 </html>
