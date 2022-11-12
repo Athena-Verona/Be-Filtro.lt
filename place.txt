@@ -1,0 +1,97 @@
+// initialize variables
+  const auth = firebase.auth()
+  const database = firebase.database()
+   //register function
+ function submit() { 
+         // get all our input fields
+          only_name = document.getElementById('only_name').value
+          email = document.getElementById('email').value
+          password = document.getElementById('password').value
+      
+  
+          //validate input fields
+          if(validate_email(email) == false || validate_password(password) == false)
+          {
+              alert ('Elektroninis paštas arba slaptažodis yra už linijų ribų')
+              return
+              // don't run the code anymore
+          }
+          if(validate_fields(only_name) == false)
+  
+  
+          {
+              alert ('Vardas yra už linijos ribų')
+              return
+              // don't run the code anymore
+          }
+      
+          auth.createUserWihtEmailAndPassword(email, password)
+          .then(function(){
+  
+              //Decalre user variable
+              var use = auth.currentUser
+              // Add this user to Firebase Database
+              var database_ref = database.ref()
+  
+              // Create User data
+              var user_data = {
+                  email: email,
+                  only_name : only_name,
+                  last_login : Date.now()
+              }
+              database_ref.child('users/' + user.uid).set(user_data)
+  
+  
+              alert('User Created')
+          })
+          .catch(function(error){
+              // Firebase will use this to alert errors
+              var error_code = error.code
+              var error_message = error.message
+              elert (error_message)
+          })
+      }
+  
+  function validate_email(email)
+      {
+          expression = /^[^@]+@\w+(\.\w+)+\w$/
+          if (expression.test(email) == true)
+          {
+              //Email is good
+              return true
+          }
+          else{
+              return false
+          }
+      }
+  
+   function validate_password(password)
+      { //Firebase only accepts lenghts greater than 6
+          if (pawwsord < 6)
+          {
+              return false
+          }
+          else {
+              return true
+          }
+      }
+  
+   function validate_fields(field)
+      {
+        if (field == null)
+        {
+            return false
+        }
+        if (field.lenght <= 0)
+        {
+            return false
+        }
+        else 
+        {
+            return true
+        }
+      }
+
+  </script>
+
+</html>
