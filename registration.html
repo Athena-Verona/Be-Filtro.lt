@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="registration.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <title>Be-Filtro.lt | Prisijungimas</title>
+    <title>Be-Filtro.lt | Registracija</title>
 
 </head>
 
@@ -16,10 +16,10 @@
         <div class="logo">
             <p>Be-<br>Filtro<br>.lt</p>
         </div>
-        <h1 class="main-text"> Registracija </h1>
+        <h1 class="main-text"> Registruotis </h1>
         <div class="hr"></div>
         <form action="/action_page.php" method="post">
-            <!-- Insert login verification here -->
+           <!-- Insert registration verification here -->
             <div class="container">
                 <div class="name">
                     <img class="inline-block" src="user.svg">
@@ -30,18 +30,18 @@
                     <input class="inline-block" type="text" id="email" placeholder="Elektroninis paštas" name="email" required>
                 </div>
                 <div class="psw">
-                    <img src="lock.svg">
+                    <img class="inline-block" src="lock.svg">
                     <input type="password" id="password" placeholder="Slaptažodis" name="psw" required>
                 </div>
                 <div class="psw">
-                    <img src="lock.svg">
+                   <img class="inline-block" src="lock.svg">
                     <input type="password" placeholder="Pakartokite slaptažodį" name="psw" required>
                 </div>
 
                 <button type="submit" id="submitData" name="submitData" class="registerbtn">Registruotis</button><br>
 
                 <div class="reg">
-                    <p> Jau turite paskyrą? <a href="login.html">Prisijungti</a></p>
+                    <p> Turite paskyrą? <a href="login.html">Prisijungti</a></p>
                 </div>
 
             </div>
