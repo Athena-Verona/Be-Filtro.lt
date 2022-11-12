@@ -35,7 +35,7 @@ button:focus {
 .main .logo {
     border-radius: 15px;
     position: absolute;
-    top: -30%;
+    top: -22%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
@@ -112,14 +112,22 @@ button:focus {
     color: #FF7D00
 }
 
+@media (max-height:890px) and (max-width:830px) {
+    .main .logo {
+        visibility: hidden
+    }
+}
+
 @media only screen and (min-width:768px) {
     .main {
         padding: 15% 10% 5% 10%
     }
 
-    .main .logo {
-        position: fixed;
-        z-index: 10;
+     .main .logo {
+        visibility: visible;
+        margin-left: 70px;
+        float: left;
+        position: static;
         width: 15%;
         font-size: 19px;
         padding-right: 7%
@@ -133,13 +141,17 @@ button:focus {
 
     .main .hr {
         float: right;
-        width: 370px;
+        width: 350px;
         margin: 0 0 50px 0;
         border-bottom: 1px solid #001524
     }
 
     .main form {
         padding: 20px 0 0 0
+    }
+    
+    .main form .container .name img {
+        margin-top: 11%;
     }
 
     .main form .container .email img {
@@ -197,13 +209,20 @@ button:focus {
         width: 440px
     }
 
+    .main form .container .name img {
+        margin-top: 11%;
+    }
+
     .main form .container .email img {
-        margin-top: 11%
+        margin-top: 5%;
+    }
+
+    .main form .container .psw img {
+        margin-top: 5%;
     }
 
     .main form .container img {
-        width: 40px;
-        margin-right: 20px
+        width: 30px;
     }
 
     .main form .container input {
