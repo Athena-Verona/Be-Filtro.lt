@@ -155,11 +155,11 @@ button:focus {
     }
 
     .main form .container .email img {
-        margin-top: 11%
+        margin-top: 5%
     }
 
     .main form .container .psw img {
-        margin-top: 5%
+        margin-top: 4.9%
     }
 
     .main form .container img {
@@ -195,30 +195,30 @@ button:focus {
         padding: 10% 5% 5% 5%
     }
     .main .logo {
-        margin-left: 90px;
-        width: 20%;
+        margin-left: 60px;
+        width: 22%;
         font-size: 21px;
         padding-right: 0
     }
 
     .main h1 {
-        font-size: 70px
+        font-size: 60px
     }
 
     .main .hr {
-        width: 440px
+        width: 390px
     }
 
     .main form .container .name img {
-        margin-top: 11%;
+        margin-top: 9%;
     }
 
     .main form .container .email img {
-        margin-top: 5%;
+        margin-top: 4%;
     }
 
     .main form .container .psw img {
-        margin-top: 5%;
+        margin-top: 4%;
     }
 
     .main form .container img {
@@ -227,8 +227,8 @@ button:focus {
 
     .main form .container input {
         padding: 0 0 0 30px;
-        width: 550px;
-        height: 80px;
+        width: 500px;
+        height: 60px;
         border-radius: 45px;
         font-size: 25px
     }
