@@ -1,107 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="registration.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <title>Be-Filtro.lt | Registracija</title>
-
-</head>
-
-<body>
-    <div class="main">
-        <div class="logo">
-            <p>Be-<br>Filtro<br>.lt</p>
-        </div>
-        <h1 class="main-text"> Registruotis </h1>
-        <div class="hr"></div>
-        <form action="/action_page.php" method="post">
-           <!-- Insert registration verification here -->
-            <div class="container">
-                <div class="name">
-                    <img class="inline-block" src="user.svg">
-                    <input class="inline-block" type="text" id= "only_name" placeholder="Vardas" name="name" required>
-                </div>
-                <div class="email">
-                    <img class="inline-block" src="email.svg">
-                    <input class="inline-block" type="text" id="email" placeholder="Elektroninis paštas" name="email" required>
-                </div>
-                <div class="psw">
-                    <img class="inline-block" src="lock.svg">
-                    <input type="password" id="password" placeholder="Slaptažodis" name="psw" required>
-                </div>
-                <div class="psw">
-                   <img class="inline-block" src="lock.svg">
-                    <input type="password" placeholder="Pakartokite slaptažodį" name="psw" required>
-                </div>
-
-                <button type="submit" id="submitData" name="submitData" class="registerbtn">Registruotis</button><br>
-
-                <div class="reg">
-                    <p> Turite paskyrą? <a href="login.html">Prisijungti</a></p>
-                </div>
-
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="registration.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="registration.js"></script>
+        <title>Be-Filtro.lt | Registracija</title>
+    </head>
+    <body>
+        <div class="main">
+            <div class="logo">
+                <p>Be-<br>Filtro<br>.lt</p>
             </div>
-        </form>
-    </div>
+            <h1 class="main-text"> Registruotis </h1>
+            <div class="hr"></div>
+            <form>
+            <!-- Insert registration verification here -->
+                <div class="container">
+                    <div class="name">
+                        <img class="inline-block" src="user.svg">
+                        <input class="inline-block" type="text" id= "username" placeholder="Vardas" name="name" required>
+                    </div>
+                    <div class="email">
+                        <img class="inline-block" src="email.svg">
+                        <input class="inline-block" type="text" id="email" placeholder="Elektroninis paštas" name="email" required>
+                    </div>
+                    <div class="psw">
+                        <img class="inline-block" src="lock.svg">
+                        <input type="password" id="password" placeholder="Slaptažodis" name="psw" required>
+                    </div>
+                    <div class="psw">
+                    <img class="inline-block" src="lock.svg">
+                        <input type="password" placeholder="Pakartokite slaptažodį" name="psw" required>
+                    </div>
 
-    <script>
-        // Page loading function
-        $(document).ready(function () {
-            $(function () {
-                $('.main').hide().fadeIn('slow');
-            });
+                    <button type="submit" name="submitData" id="submitData" class="registerbtn">Registruotis</button><br>
+                    <div class="loading"></div>
+
+                    <div class="reg">
+                        <p> Turite paskyrą? <a href="login.html">Prisijungti</a></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <script>
+           
+        </script>
+    </body>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        // https://firebase.google.com/docs/web/setup#available-libraries
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-analytics.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+        import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyBjTkbvIAZfgp_thRlFqVlN8NcGkV5ge1Y",
+            authDomain: "be-filtro.firebaseapp.com",
+            databaseURL: "https://be-filtro-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "be-filtro",
+            storageBucket: "be-filtro.appspot.com",
+            messagingSenderId: "200756039756",
+            appId: "1:200756039756:web:77139961e9a5d07fe0a4e9",
+            measurementId: "G-HJNDBTJ9J1"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+        const database = getDatabase(app);
+
+        // Event Listener
+        submitData.addEventListener('click', (e) => {
+            e.preventDefault();
+            username = document.getElementById('username').value;
+            email = document.getElementById('email').value;
+            password = document.getElementById('password').value;
+            
+            // Firebase authentication
+            createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => { // Authentication successful
+                $(document).ready(function(){
+                    $("#submitData").fadeTo( 500, 0 );
+                    $('.loading')
+                    .delay(200)
+                    .queue(function(next){ 
+                        $(this).hide().fadeIn('fast');
+                        next(); 
+                        $(this).css("visibility", "visible");
+                        next(); 
+                    });
+                });
+
+                const user = userCredential.user;
+                console.log('User created!');
+
+                // Stores users to realtime database
+                set(ref(database, 'users/' + user.uid), {
+                    username: username,
+                    email: email,
+                    last_login: "never"
+                })
+
+                setTimeout(function() { location.href = "index.html"; }, 5000);
+            }).catch((error) => { // Authentication unsuccessful
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(errorMessage);
+            }); 
         });
     </script>
-
-</body>
-
-<script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-analytics.js";
-    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyBjTkbvIAZfgp_thRlFqVlN8NcGkV5ge1Y",
-      authDomain: "be-filtro.firebaseapp.com",
-      databaseURL: "https://be-filtro-default-rtdb.europe-west1.firebasedatabase.app",
-      projectId: "be-filtro",
-      storageBucket: "be-filtro.appspot.com",
-      messagingSenderId: "200756039756",
-      appId: "1:200756039756:web:77139961e9a5d07fe0a4e9",
-      measurementId: "G-HJNDBTJ9J1"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const auth = getAuth();
-  
-    submitData.addEvenListener ('click', (e) => {
-    
-        var email = document.getElementById ('email').value;
-        var password = document.getElementById ('password').value;
-
-
-        createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-         // Signed in 
-          const user = userCredential.user;
-          // ...
-            alert('User created succesfully');
-         })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-         // ..
-         alert (errorMessage);
-         });
-    });
+</html>
