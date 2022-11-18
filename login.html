@@ -82,8 +82,8 @@
         // Event Listener
         login.addEventListener('click', (e) => {
             e.preventDefault();
-            email = document.getElementById('email').value;
-            password = document.getElementById('password').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
 
             signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {

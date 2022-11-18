@@ -81,9 +81,9 @@
         // Event Listener
         submitData.addEventListener('click', (e) => {
             e.preventDefault();
-            username = document.getElementById('username').value;
-            email = document.getElementById('email').value;
-            password = document.getElementById('password').value;
+            var username = document.getElementById('username').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
             
             // Firebase authentication
             createUserWithEmailAndPassword(auth, email, password)
