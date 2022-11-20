@@ -1,0 +1,75 @@
+// compress: false
+
+.footer {
+    background-color: #001524;
+    color: #FFFFFF;
+    padding: 25px 40px 25px 40px; // top right bottom left
+    p {
+        font-size: 15px;
+        text-align: center;
+    }
+    .lists {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        .l1, .l2, .l3 {ul{margin: 0 auto !important;}}
+        .l1 {
+            p{margin: 0 0 20px 0;}
+            ul{width: 210px;}
+        }
+        .l2 {
+            display: none;
+            ul{width: 130px;}
+        }
+        .l3 {ul{width: 280px;}}
+        p {margin: 20px 0 20px 0;} // top right bottom left
+        ul {
+            li {
+                list-style: none;
+                &:before {
+                    content: "·";
+                    font-size: 40px;
+                    vertical-align: middle;
+                    line-height: 0px;
+                    margin-right: -5px;
+                }
+                a {
+                    transition: 0.3s;
+                    text-decoration: none;
+                    color: #FFFFFF;
+                    &:hover{filter: drop-shadow(0px 0px 1.5px #FFFFFF);}
+                }
+            }
+        }
+    }
+    hr {
+        filter: drop-shadow(0px 0px 3px #FFFFFF);
+        border: none;
+        border-top: 2px solid #FFFFFF;
+        margin: 30px 0 30px 0; // top right bottom left
+    }
+}
+
+// Compatibility
+@media only screen and (min-width: 700px) {
+    .footer {
+        .lists {
+            grid-template-columns: repeat(3, 1fr);
+            .l1 {p{margin: 0;}}
+            .l2 {display: inherit;}
+            p {margin: 0 0 20px 0 !important;}
+        }
+        br {display: none;}
+    }
+}
+@media only screen and (min-width: 900px) {
+    .footer {p {font-size: 22px;}}
+}
+@media only screen and (min-width: 1300px) {
+    .footer {
+        ul{font-size: 20px;}
+        // .l1, .l2, .l3 {ul{border: 2px solid white;}}
+        .l1 {ul{width: 270px !important;}}
+        .l2 {ul{width: 160px !important;}}
+        .l3 {ul{width: 350px !important;}}
+    }
+}

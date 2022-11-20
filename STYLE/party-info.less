@@ -6,9 +6,13 @@
 // Navbar style
 @import "navbar-style";
 
+// Footer style
+@import "footer-style";
+
 // Misc style
 body {background-color: #FFECD1 !important;}
 .party-header {
+    z-index: 10000;
     background-color: #78290F;
     text-align: center;
     padding-bottom: 1px;
@@ -152,7 +156,7 @@ body {background-color: #FFECD1 !important;}
         }
     }
 }
-.member-field {
+.party-info {
     margin-bottom: 50px;
     text-align: center;
     display: grid; 
@@ -305,6 +309,13 @@ body {background-color: #FFECD1 !important;}
     .map {grid-area: map;}
 }
 
+//  ----------------------------
+.footer {
+    position: relative;
+    bottom: -50px;
+}
+//  ----------------------------
+
 // Compatibility
 @media only screen and (max-width: 385px) {
     .party-header {
@@ -358,7 +369,7 @@ body {background-color: #FFECD1 !important;}
     }
 }
 @media only screen and (max-width: 700px) { 
-    .member-field {
+    .party-info {
         grid-template-columns: 1fr !important; 
         grid-template-rows: 1fr 0.5fr 0fr !important; 
         gap: 0px 0px; 
@@ -371,8 +382,15 @@ body {background-color: #FFECD1 !important;}
         .gov-members {grid-area: gov-members;}
     }
 }
+
+// ----------------------------
+@media only screen and (min-width: 700px) { 
+    .footer {display: none !important;}
+}
+// ----------------------------
+
 @media only screen and (max-width: 1023px) { 
-    .member-field {
+    .party-info {
         grid-template-columns: 1fr 1fr; 
         grid-template-rows: 1fr 1fr; 
         grid-template-areas: 
