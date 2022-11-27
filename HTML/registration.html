@@ -85,8 +85,30 @@
             var username = document.getElementById('username').value;
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
+
+        //     //validate input fields
+
+          if(validate_email(email) == false )
+          {
+              console.log('Error: Elektroninis paštas neatitinka reikalavimų')
+              return
+              // don't run the code anymore
+          }
+          if(validate_password(password) == false)
+          {
+            console.log('Error: Slaptažodis turi būti ilgesnis nei 5 simboliai')
+              return
+              // don't run the code anymore
+          }
+          if(validate_fields(username) == false)
+          {
+            console.log('Error: Nėra vartotojo vardo ')
+              return
+              // don't run the code anymore
+          }
             
             // Firebase authentication
+            
             createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => { // Authentication successful
                 $(document).ready(function(){
@@ -119,5 +141,87 @@
                 // alert(errorMessage);
             }); 
         });
-    </script>
+
+         function validate_email(email)
+      {
+           var expression = /^[^@]+@\w+(\.\w+)+\w$/
+          if (expression.test(email) == true)
+          {
+              //Email is good
+              return true
+          }
+          else{
+              return false
+          }
+      }
+      
+         function validate_password(password)
+      { //Firebase only accepts lenghts greater than 6
+          if (password < 6)
+          {
+              return false
+          }
+          else {
+              return true
+          }
+      }
+  
+         function validate_fields(field)
+
+      {
+        if (field == null)
+        {
+            return false
+        }
+        if (field.lenght <= 0)
+        {
+            return false
+        }
+        else 
+        {
+            return true
+        }
+      }
+      
+//          const password = document.getElementById('pass');
+//          const repeatPass = document.getElementById('repeat_pass');
+
+//     function clickShowHide(passwd, iconElem) {
+//     if (passwd.getAttribute('type') === 'password') {
+//         passwd.setAttribute('type', 'text');
+//         iconElem.classList.add('fa-eye-slash');
+//         iconElem.classList.remove('fa-eye');
+//     } else {
+//         iconElem.classList.remove('fa-eye-slash');
+//         iconElem.classList.add('fa-eye');
+//         passwd.setAttribute('type', 'password');
+//     }
+// }
+// function validatePassword() {
+//     const icon = document.getElementById('icon1');
+//     const icon2 = document.getElementById('icon2');
+    
+//     icon.addEventListener('click', () => clickShowHide(password, icon));
+
+//     icon2.addEventListener('click', () => clickShowHide(repeatPass, icon2));
+
+//     const submit = document.querySelector('.password-form')
+//     const errorText = document.createElement('span');
+//     submit.addEventListener('submit', () => {
+//             if (password.value !== repeatPass.value) {
+//                 repeatPass.after(errorText);
+//                 errorText.innerText = 'Password does not match.';
+//                 errorText.style.color = 'red';
+//             } else {
+//                 password.value = "";
+//                 repeatPass.value = "";
+//                 alert('You are welcome');
+//             }
+//         }
+//     );
+// }
+
+// validatePassword();
+     
+ </script>
 </html>
