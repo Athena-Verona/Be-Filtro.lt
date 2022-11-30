@@ -35,7 +35,7 @@
                     </div>
                     <div class="psw">
                         <i class="material-symbols-outlined"> lock_reset </i>
-                        <input type="password" placeholder="Pakartokite slaptažodį" name="psw" required>
+                        <input type="password" id="password_repeat"placeholder="Pakartokite slaptažodį" name="psw" required>
                     </div>
 
                     <button type="submit" name="submitData" id="submitData" class="registerbtn">Registruotis</button><br>
@@ -85,10 +85,13 @@
             var username = document.getElementById('username').value;
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
+            var password_repeat = document.getElementById("password_repeat").value;  
+
 
         //     //validate input fields
 
           if(validate_email(email) == false )
+
           {
               console.log('Error: Elektroninis paštas neatitinka reikalavimų')
               return
@@ -96,17 +99,27 @@
           }
           if(validate_password(password) == false)
           {
-            console.log('Error: Slaptažodis turi būti ilgesnis nei 5 simboliai')
+            console.log('Error: Slaptažodis turi būti ilgesnis nei 6 simboliai')
               return
               // don't run the code anymore
           }
           if(validate_fields(username) == false)
+
           {
             console.log('Error: Nėra vartotojo vardo ')
               return
               // don't run the code anymore
           }
-            
+          if(conform_password(password, password_repeat) == false)
+          {
+            console.log('Error: Parašyti slaptažodžiai nesutampa')
+            return
+          }
+        //   if(key = 1)
+        //   {
+        //     console.log('Tosk vartotojo vardas jau yra užimtas')
+        //     return
+        //   }
             // Firebase authentication
             
             createUserWithEmailAndPassword(auth, email, password)
@@ -135,12 +148,24 @@
 
                 setTimeout(function() { location.href = "index.html"; }, 2000);
             }).catch((error) => { // Authentication unsuccessful
-                if(password == ''){alert("too short pidr");}
                 // const errorCode = error.code;
                 // const errorMessage = error.message;
                 // alert(errorMessage);
             }); 
         });
+
+        // var query = firebase.database().ref("users").orderByKey();
+        //     query.once("value")
+        //         .then(function (snapshot) {
+        //             snapshot.forEach(function (childSnapshot) {
+        //                 var key = childSnapshot.key; // "ada"
+
+        //                 // Cancel enumeration
+        //                 return true;
+        //             });
+        //         });
+
+
 
          function validate_email(email)
       {
@@ -157,7 +182,7 @@
       
          function validate_password(password)
       { //Firebase only accepts lenghts greater than 6
-          if (password < 6)
+          if (password < 7)
           {
               return false
           }
@@ -182,46 +207,18 @@
             return true
         }
       }
-      
-//          const password = document.getElementById('pass');
-//          const repeatPass = document.getElementById('repeat_pass');
-
-//     function clickShowHide(passwd, iconElem) {
-//     if (passwd.getAttribute('type') === 'password') {
-//         passwd.setAttribute('type', 'text');
-//         iconElem.classList.add('fa-eye-slash');
-//         iconElem.classList.remove('fa-eye');
-//     } else {
-//         iconElem.classList.remove('fa-eye-slash');
-//         iconElem.classList.add('fa-eye');
-//         passwd.setAttribute('type', 'password');
-//     }
-// }
-// function validatePassword() {
-//     const icon = document.getElementById('icon1');
-//     const icon2 = document.getElementById('icon2');
-    
-//     icon.addEventListener('click', () => clickShowHide(password, icon));
-
-//     icon2.addEventListener('click', () => clickShowHide(repeatPass, icon2));
-
-//     const submit = document.querySelector('.password-form')
-//     const errorText = document.createElement('span');
-//     submit.addEventListener('submit', () => {
-//             if (password.value !== repeatPass.value) {
-//                 repeatPass.after(errorText);
-//                 errorText.innerText = 'Password does not match.';
-//                 errorText.style.color = 'red';
-//             } else {
-//                 password.value = "";
-//                 repeatPass.value = "";
-//                 alert('You are welcome');
-//             }
-//         }
-//     );
-// }
-
-// validatePassword();
-     
+        
+         function conform_password(password, password_repeat)
+         {
+            if (password != password_repeat)
+            {
+                return false
+            }
+            else
+            {
+                return true
+            }
+         }
+        
  </script>
 </html>
