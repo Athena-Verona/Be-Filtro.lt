@@ -11,6 +11,7 @@
         <script src="https://kit.fontawesome.com/c912322992.js" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="../JS/navbar.js"></script>
+        <script src="../JS/member.js"></script>
         <title>Be-Filtro.lt | Politikas</title>
     </head>
     <body>
@@ -112,7 +113,7 @@
                     <i class="material-symbols-outlined"> add_circle </i>
                     <p> Atidaryti diskusiją... </p>
                 </div>
-                <div class="thread">
+                <div class="thread" onclick="openClose_section()">
                     <i class="material-symbols-outlined"> arrow_right </i>
                     <div class="pop"><p> 1 </p></div>
                     <p> Pasisakymai per LRT </p> 
@@ -166,6 +167,61 @@
                         <div id="place-status">
                             <span id="currect2"> 50 </span id="all-mem2"> / <span> 352 </span>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comment section window -->
+        <div class="comment-section">  
+            <button class="material-symbols-outlined close-section" onclick="openClose_section()"> close </button>
+            <div class="profile-row">
+                <div class="author-profile-img">
+                    <img src="../IMG/pfp.jpg">
+                </div>
+                <p> Pradėta <span id="author"> Mississippi Queen </span><span id="post-date"> 1945/09/02 </span></p>
+            </div>
+            <div class="text-row">
+                <h1> Buvo blogas dėstytojas </h1>
+                <p> Sveiki mažai kas tai žino bet Laurynas dėstė TSPMI, užduodavo per sunkias užduotis ir vertė rašyti referatus pirmą savaitę ar kas nors irgi susidūrė su šia patirtimi kas baigė TSPMI 2012 metais? </p>
+            </div>
+            <div class="comments-row">
+                <div class="post-comment">
+                    <div class="comment-content">
+                        <div class="comment-profile-img">
+                            <img src="../IMG/pfp.jpg">
+                        </div>
+                        <p><span id="comment-author"> Jūs </span> </p>
+                        <textarea class="txta" onkeyup="textAreaAdjust(this)" type="text" spellcheck="false" placeholder="Rašyti komentarą"></textarea>
+                        <div class="post-comment">
+                            <button> Skelbti </button>
+                        </div><br><br>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="votes">
+                        <button class="material-symbols-outlined"> arrow_drop_up </button><br>
+                        <button class="material-symbols-outlined"> arrow_drop_down </button>
+                    </div>
+                    <div class="comment-content">
+                        <div class="comment-profile-img">
+                            <img src="../IMG/pfp.jpg">
+                        </div>
+                        <p><span id="comment-author"> Ne_Jonavos_meras </span><span id="comment-date"> 10:48 </span> rašė: </p>
+                        <p id="comment-text"> Kaščiūnas - puikus kolega ir bendramintis. p </p> 
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="votes">
+                        <button class="material-symbols-outlined"> arrow_drop_up </button><br>
+                        <button class="material-symbols-outlined"> arrow_drop_down </button>
+                    </div>
+                    <div class="comment-content">
+                        <div class="comment-profile-img">
+                            <img src="../IMG/pfp.jpg">
+                        </div>
+                        <p><span id="comment-author"> Ne_Jonavos_meras </span><span id="comment-date"> 10:48 </span> rašė: </p>
+                        <p id="comment-text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque volutpat ac tincidunt vitae. Ultricies tristique nulla aliquet enim tortor at auctor urna nunc. Posuere ac ut consequat semper viverra nam libero justo. Purus ut faucibus pulvinar elementum integer enim neque. Cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum. Scelerisque purus semper eget duis at tellus at urna condimentum. Risus viverra adipiscing at in tellus. Quis auctor elit sed vulputate mi sit amet mauris commodo. At urna condimentum mattis pellentesque id nibh tortor id aliquet. Amet nisl purus in mollis nunc. Aliquam purus sit amet luctus venenatis lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada. Enim tortor at auctor urna nunc id cursus metus aliquam. Volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque. Fermentum leo vel orci porta non pulvinar neque. Amet nisl suscipit adipiscing bibendum est ultricies integer quis auctor. Luctus venenatis lectus magna fringilla urna porttitor. Mi quis hendrerit dolor magna eget est lorem ipsum dolor. </p> 
                     </div>
                 </div>
             </div>

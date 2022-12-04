@@ -231,7 +231,7 @@ body {background-color: #FFECD1 !important;}
     }
 }
 .member-content {
-    margin-bottom: -400px;
+    margin-bottom: -100px;
     display: grid; 
     grid-template-columns: 1fr 1fr 1fr; 
     grid-template-rows: 1fr 1fr 1fr; 
@@ -359,6 +359,210 @@ body {background-color: #FFECD1 !important;}
 .discussions { grid-area: discussions; }
 .desktop-vote { grid-area: desktop-vote; }
 
+.comment-section {
+    display: none;
+    overflow-y: auto;
+    scrollbar-color: #FF7D00 transparent;
+    scrollbar-width: thin;
+    position: absolute;
+    width: 50%;
+    height: auto;
+    margin: 50px auto; // top right bottom left
+    padding: 30px 40px 30px 40px; // top right bottom left
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: #FFECD1;
+    border-radius: 15px;
+    filter: drop-shadow(0px 0px 40px #000);
+    .close-section {
+        transition: 0.2s;
+        position: absolute;
+        right: 38px;
+        border: none;
+        border-radius: 100%;
+        background-color: #FF7D00;
+        z-index: 2;
+        font-size: 40px;
+        padding: 5px;
+        &:hover {
+            cursor: pointer;
+            color: #FFECD1;
+        }
+    }
+    .profile-row {
+        .author-profile-img {
+            float: left;
+            position: relative; 
+            height: 50px; 
+            width: 50px;
+            img {
+                position: absolute; 
+                top: 0; 
+                right: 0; 
+                left: 0; 
+                bottom: 0; 
+                width: 100%;
+                height: 100%; 
+                object-fit: cover;
+                border-radius: 100%;
+            }
+        }
+        p {
+            position: relative;
+            top: 10px;
+            left: 20px;
+            color: #78290F;
+            font-size: 25px;
+            font-weight: bold;
+            #author {color: #FF7D00;}
+        }
+    }
+    .text-row {
+        margin: 40px 0 0 0; // top right bottom left
+        h1 {
+            margin-bottom: 10px;
+            font-size: 45px;
+            text-shadow: 0px 1px, 1px 0px, 1px 1px;
+        }
+        p {
+            font-size: 26px;
+            font-weight:700;
+        }
+    }
+    .comments-row {
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-color: #FF7D00 transparent;
+        scrollbar-width: thin;
+        border: 2px solid #FF7D00;
+        border-radius: 15px;
+        margin-top: 30px;
+        height: 520px;
+        .comment {
+            .comment-content {
+                border: 2px solid #FF7D00;
+                border-radius: 15px;
+                margin: 10px 45px 10px 20px; // top right bottom left
+                padding: 2px 5px 10px 5px; // top right bottom left
+                .comment-profile-img {
+                    float: left;
+                    position: relative; 
+                    height: 50px; 
+                    width: 50px;
+                    margin: 7px; // top right bottom left
+                    img {
+                        position: absolute; 
+                        top: 0; 
+                        right: 0; 
+                        left: 0; 
+                        bottom: 0; 
+                        width: 100%;
+                        height: 100%; 
+                        object-fit: cover;
+                        border-radius: 100%;
+                    }
+                }
+                p {
+                    position: relative;
+                    top: 5px;
+                    left: 2px;
+                    font-size: 26px;
+                    font-weight:700;
+                    color: #78290F;
+                    #comment-author {color: #FF7D00;}
+                }
+                #comment-text {
+                    color: #000000 !important;
+                }
+            }
+            .votes {
+                float: right;
+                margin: 0 8px 0 0; // top right bottom left
+                .material-symbols-outlined {
+                    font-variation-settings:
+                    'FILL' 1,
+                    'wght' 700,
+                    'GRAD' 200,
+                    'opsz' 48
+                }
+                button {
+                    font-size: 30px;
+                    background-color: transparent;
+                    border: none;
+                    border-radius: 100%;
+                    transition: 0.2s;
+                    &:hover {
+                        cursor: pointer;
+                        background-color: transparent;
+                    }
+                    &:first-child {
+                        margin-top: 5px;
+                        color: #FF7D00;
+                    }
+                    &:last-child {
+                        color: #15616D;
+                    }
+                    &:hover {
+                        background-color: #D9D9D9;
+                    }
+                }
+            }
+        }
+        .post-comment {
+            .comment();
+            textarea {
+                margin: 10px 0 10px 0; // top right bottom left
+                min-width: 792px;
+                max-width: 792px;
+                max-height: 300px;
+                min-height: 30px;
+                border: none;
+                font-size: 26px;
+                font-weight: bold;
+                background-color: transparent;
+                &::placeholder {
+                    font-size: 26px;
+                    font-weight: bold;
+                }
+            }
+            button {
+                float: right;
+                border: none;
+                border-radius: 7px;
+                background-color: #FF7D00;
+                font-size: 20px;
+                letter-spacing: 0px;
+                margin: 0 12px 0 0;
+                padding: 5px 10px 5px 10px;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+        &::-webkit-scrollbar-track {
+            border: none;
+            margin: 5px 0 5px 0;
+            background-color: transparent;
+        }
+        &::-webkit-scrollbar-thumb {
+            border-radius: 15px;
+            background-color: #FF7D00;;
+        }
+    }
+    &::-webkit-scrollbar-track {
+        border: none;
+        margin: 10px 0 10px 0;
+        background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 15px;
+        background-color: #FF7D00;;
+    }
+}
+
 // Compatibility
 @media only screen and (max-width: 385px) {
     .member-header {
@@ -408,9 +612,7 @@ body {background-color: #FFECD1 !important;}
         }
     }
 } 
-@media only screen and (min-width: 700px) {
-    .member-content {margin-bottom: -370px;}
-}
+
 @media only screen and (min-width: 820px) {
     .member-header {
         .header-objects {
@@ -427,9 +629,7 @@ body {background-color: #FFECD1 !important;}
         }
     }
 }
-@media only screen and (min-width: 900px) {
-    .member-content {margin-bottom: -380px;}
-}
+
 @media only screen and (min-width: 1024px) { 
     .member-header {
         padding-bottom: 180px;
