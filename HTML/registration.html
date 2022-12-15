@@ -139,11 +139,13 @@
                 const user = userCredential.user;
                 console.log('User created!');
 
+                const d = new Date();
+
                 // Stores users to realtime database
                 set(ref(database, 'users/' + user.uid), {
                     username: username,
                     email: email,
-                    last_login: "never"
+                    last_login:  d.toLocaleDateString('en-CA'),
                 })
 
                 setTimeout(function() { location.href = "index.html"; }, 2000);
