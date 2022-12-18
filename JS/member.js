@@ -85,7 +85,17 @@ $(document).ready(function(){
         $("#alert-symbol-disc2").css("visibility", "hidden");
     });
 
-});
+    var name = document.URL.query.get('name');
+    var surname = document.URL.query.get('surname');
+    
+    // name1=value1&name2=value2&...
+
+    // http://localhost:3000/html/member.html?name=ivan&surname=stanev
+
+    $.get("http://localhost:3000/candidate?name=" + name + "&surname=" + surname, function(response) {
+ console.log(response)})
+
+}); 
 
 // Hides and unhides thread's text window
 var hide_status = true;
