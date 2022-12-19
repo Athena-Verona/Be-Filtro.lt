@@ -61,18 +61,22 @@ app.get("/partijos", async (req, res) => {
     res.json(cityList);
   });
   app.post("/newcomment", async (req, res) => { // naudok sita location darant siuntima i backenda
+    //app.post sukuri handleri backendui kuris veiks su http postu
+    // kai nusiunti duomenis is frontend (komentarai yra frontend) i backenda naudojam app.post o kai duomenis paimam is failo app.get, dabar nenaudojam
     // const doc = {
     //   data: req.body,
     //   likes: 0,
     // };
 
 
-    // Gintare Staneva (/html/member.html?name=gintare&surname=staneva)
+    // Gintare Staneva (/html/member.html?name=gintare&surname=staneva) // 
     // Ivan Stanev (/html/member.html?name=ivan&surname=stanev)
     // Vaidas Grigutis (/html/member.html?name=vaidas&surname=grigutis)
 
-    const citiesCol = collection(db, "komentaras");
-    const citySnapshot = await addDoc(citiesCol, req.body);
+    const komentarai = collection(db, "komentaras");
+    // sukuria visa collection komentaro
+    const komentaras = await addDoc(komentarai, req.body);
+    // priededa komentara i real time database
   
     // return data
     res.status(200);
