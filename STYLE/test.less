@@ -1,0 +1,136 @@
+// compress: true
+
+// Main style
+@import "main-style";
+
+// Navbar style
+@import "navbar-style";
+
+// Footer style
+@import "footer-style";
+
+// Misc style
+body {background-color: #FFECD1 !important;}
+.text {
+    padding: 60px;
+    text-align: center;
+    font-size: 36px;
+    span {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 100px;
+    }
+    hr {border: 1px solid #15616D;}
+}
+.quest {
+    padding: 30px 30px 15px 30px;
+    text-align: center;
+    font-size: 24px;
+}
+.mobile-vote {
+    margin: 20px 50px 20px 50px;
+    padding: 10px 0 10px 0; 
+    border-style: solid;
+    border-width: 3px;
+    border-color:#FF7D00;
+    border-radius: 15px;
+    .levels {
+        font-size: 0;
+        margin: 40px 0 -5px 50px; // top right bottom left
+        #mega-bad {
+            height: 40px;
+            width: 240px;
+            border: none;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            background-color: #FF4117;
+            &::after {
+                content: "\f194";
+                font-family: "Material Symbols Outlined";
+                position: sticky !important;
+                font-weight: 400;
+                font-size: 35px;
+                color: white;
+                opacity: 0;
+                transition: 0.2s;
+            }
+            &:hover {
+                cursor: pointer;
+                transition: all 0.5s;
+                box-shadow: 0px 0px 25px #FF4117;
+                &::after {
+                    opacity: 1;
+                    transition: all 0.5s;
+                }
+            }
+        }
+        #bad {
+            #mega-bad();
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            background-color: #FF7D00;
+            &::after {
+                content: "\e811";
+                font-family: "Material Symbols Outlined";
+                position: absolute;
+            }
+            &:hover {box-shadow: 0px 0px 25px #FF7D00;}
+        }
+        #idk {
+            #bad();
+            background-color: #D9D9D9;
+            &::after {
+                content: "\e812";
+                font-family: "Material Symbols Outlined";
+                position: absolute;
+                color: black;
+            }
+            &:hover {box-shadow: 0px 0px 25px #D9D9D9;}
+        }
+        #like {
+            #idk();
+            background-color: #FFD600;
+            &::after {
+                content: "\e813";
+                font-family: "Material Symbols Outlined";
+                position: absolute;
+                color: white;
+            }
+            &:hover {box-shadow: 0px 0px 25px #FFD600;}             
+        }
+        #mega-like {
+            #idk;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+            background-color: #4DB02A;
+            &::after {
+                content: "\e7f2";
+                font-family: "Material Symbols Outlined";
+                position: absolute;
+                color: white;
+            }
+            &:hover {box-shadow: 0px 0px 25px #4DB02A;}
+        }
+    }
+    .level-text {
+        margin: 20px 0 5px 50px; // top right bottom left
+        font-size: 0;
+        #mega-bad {
+            font-size: 17px;
+            height: 20px;
+            width: 240px;
+            border: none;
+            background-color: transparent;
+            color: black;
+        }
+        #bad {#mega-bad();}
+        #idk {#mega-bad();}
+        #like {#mega-bad();}
+        #mega-like {#mega-bad;}
+    }
+    p {
+        display: inline-block;
+        font-size: 10px;
+        margin: -100px 0 0 0 !important; // top right bottom left
+        padding: 0 !important;
+    }
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../STYLE/party-info.css">
+        <link rel="stylesheet" href="../STYLE/">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <script src="https://kit.fontawesome.com/c912322992.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="../JS/navbar.js"></script>
+        <title>Be-Filtro.lt | Testas</title>
+    </head>
+    <body>
+         <!-- Address for scrolling up -->
+        <span id="top"></span>
+        <!-- Navbar -->
+        <div id="navbar-id" class="navbar">
+            <div class="grid">
+                <div class="item">
+                    <div class="logo" onclick="window.location='index.html';">
+                        <p>Be-<br>Filtro<br>.lt</p>
+                    </div>
+                </div>
+                <div id="search-bar" class="item">
+                    <div><i id="search-icon" class="material-symbols-outlined search-icon"> search </i></div>
+                    <input onfocus="lightUp()" onblur="turnOff()" id="search-bar-id" type="text" placeholder="Šimonytė, TS-LKD...">
+                </div>
+                <div class="item"><a href="parties.html"> Partijos </a></div>
+                <div class="item" onload="loadthisfuck(this)"><a href="#"> Testas </a></div>
+                <div class="item">
+                    <button id="profile-button"><i id="profile-icon" class="material-symbols-outlined"> badge </i> Paskyra </button>
+                </div>
+                <div class="dropdown-profile">
+                    <p> <i class="material-symbols-outlined"> manage_accounts </i> Tvarkyti </p>
+                    <p> <i id="logout-icon" class="material-symbols-outlined"> logout </i> Atsijungti </p>
+                </div>
+            </div>
+        </div>
+        <div id="open-navbar-id" class="open-navbar">
+             <button id="checkbox1" class="checkbox1 visuallyHidden"> <i class="material-symbols-outlined"> menu </i> </button>
+        </div> 
+
+        <!-- Objects -->
+        <div class="text">
+             <p> Atlikę testą galėsite sužinoti apie savo politines pažiūras pagal politinį kompasą bei tai, kurios politinės partijos yra arčiausiai jūsų pažiūrų!</p>
+        </div>
+        <div class="mobile-vote">
+            <div class="quest"> Valstybė turėtų didinti mokesčius didesnes pajamas gaunantiems gyventojams, kad galėtų išplėsti socialinę paramą ir paslaugas. </div>
+            <div class="levels">
+                <button id="mega-bad"></button>
+                <button id="bad"></button>
+                <button id="idk"></button>
+                <button id="like"></button>
+                <button id="mega-like"></button>
+            </div>
+            <div class="level-text">
+                <button id="mega-bad"> Visiškai <br> nesutinku </button>
+                <button id="bad"> Labiau <br> nesutinku </button>
+                <button id="idk"> Nei sutinku, <br> nei nesutinku </button>
+                <button id="like"> Labiau <br> sutinku </button>
+                <button id="mega-like"> Visiškai <br> sutinku</button>
+            </div>
+        </div>
+        <div class="mobile-vote">
+            <div class="quest"> Valstybė turėtų kiek įmanoma mažiau kištis į ekonomiką </div>
+            <div class="levels">
+                <button id="mega-bad"></button>
+                <button id="bad"></button>
+                <button id="idk"></button>
+                <button id="like"></button>
+                <button id="mega-like"></button>
+            </div>
+            <div class="level-text">
+                <button id="mega-bad"> Visiškai <br> nesutinku </button>
+                <button id="bad"> Labiau <br> nesutinku </button>
+                <button id="idk"> Nei sutinku, <br> nei nesutinku </button>
+                <button id="like"> Labiau <br> sutinku </button>
+                <button id="mega-like"> Visiškai <br> sutinku</button>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="footer">
+            <p> Šis puslapis sukurtas VU Matematikos ir Informatikos Fakulteto pirmo kurso “Informacinių sistemų inžinerijos” programos studentų sie
+            <hr>
+            <div class="lists">
+                <div class="l1">
+                    <p> Komandą sudarė: </p>
+                    <ul>
+                        <li> Sintija Bambalaitė </li>
+                        <li> Kristupas Budukevičius </li>
+                        <li> Viktorija Kuzabavičiūtė </li>
+                        <li> Rokas Kartenis </li>
+                        <li> S. Atėnė Vaicekauskaitė </li>
+                        <li> Vaidas Grigaitis </li> <!-- :DDD -->
+                    </ul>
+                </div>
+                <div class="l2">      
+                    <p> Pareigos: </p>     
+                    <ul>
+                        <li> Front-end </li>
+                        <li> Back-end </li>
+                        <li> Dokumentacija </li>
+                        <li> Full-stack </li>
+                        <li> Team lead </li>
+                        <li> Back-end </li>
+                    </ul>
+                </div>
+                <div class="l3">
+                    <p> Github kontaktai: </p>
+                    <ul>
+                        <li><a target="_blank" href="https://github.com/sinte19920"> https://github.com/sinte19920 </a></li>
+                        <li><a target="_blank" href="https://github.com/domit1"> https://github.com/domit1 </a></li>
+                        <li><a target="_blank" href="https://github.com/kuzviktorija"> https://github.com/kuzviktorija </a></li>
+                        <li><a target="_blank" href="https://github.com/N0rmalus"> https://github.com/N0rmalus </a></li>
+                        <li><a target="_blank" href="https://github.com/Athena-Verona"> https://github.com/Athena-Verona </a></li>
+                        <li><a target="_blank" href="https://github.com/Vaidas-code"> https://github.com/Vaidas-code </a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p> 2022, Be-Filtro <br> Teisės nesaugomos </p>
+        </div>
+
+        <!-- Scroll to the top button -->
+        <a href="#top" class="up"><i class="material-symbols-outlined"> keyboard_arrow_up </i></a>
+    </body>
+</html>
