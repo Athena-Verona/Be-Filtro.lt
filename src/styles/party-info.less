@@ -1,0 +1,462 @@
+// compress: true
+
+// Main style
+@import "main-style";
+
+// Navbar style
+@import "navbar-style";
+
+// Footer style
+@import "footer-style";
+
+// Misc style
+body {background-color: #FFECD1 !important;}
+.party-header {
+    z-index: 10000;
+    background-color: #78290F;
+    text-align: center;
+    padding-bottom: 1px;
+    .header-objects {
+        img {
+            background-color: white;
+            width: 153px;
+            border-radius: 10px;
+            padding: 30px 20px 30px 20px; // top right bottom left
+            margin: 60px 30px 30px 30px; // top right bottom left
+            box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            color: white;
+            font-size: 50px;
+            margin: 0 0 20px 0; // top right bottom left
+        }
+        hr {
+            margin: 0 auto;
+            width: 350px;
+            border-color: #FFECD1;
+            box-shadow: 0px 10px 20px -7px #000000, 0px 1px 3px 0px rgba(0,0,0,0.5);
+        }
+        p {
+            color: white;
+            font-size: 20px;
+            padding: 30px 20px 0 20px // top right bottom left
+        }
+        .mobile-rating {
+            margin: 40px 0 40px 0; // top right bottom left
+            h2 {
+                margin: 0 40px 0 40px; // top right bottom left
+                padding: 10px 0 10px 0; // top right bottom left
+                background-color: #FF7D00;
+                color: white;
+                font-size: 40px;
+                border-radius: 15px;
+            }
+        }
+        .mobile-vote {
+            .mobile-rating();
+            .levels {
+                font-size: 0;
+                margin: 40px 0 -5px 0; // top right bottom left
+                #mega-bad {
+                    height: 50px;
+                    width: 70px;
+                    border: none;
+                    border-top-left-radius: 15px;
+                    border-bottom-left-radius: 15px;
+                    background-color: #FF4117;
+                    &::after {
+                        content: "\f194";
+                        font-family: "Material Symbols Outlined";
+                        position: sticky !important;
+                        font-weight: 400;
+                        font-size: 35px;
+                        color: white;
+                        opacity: 0;
+                        transition: 0.2s;
+                    }
+                    &:hover {
+                        cursor: pointer;
+                        transition: all 0.5s;
+                        box-shadow: 0px 0px 25px #FF4117;
+                        &::after {
+                            opacity: 1;
+                            transition: all 0.5s;
+                        }
+                    }
+                }
+                #bad {
+                    #mega-bad();
+                    border-top-left-radius: 0;
+                    border-bottom-left-radius: 0;
+                    background-color: #FF7D00;
+                    &::after {
+                        content: "\e811";
+                        font-family: "Material Symbols Outlined";
+                        position: absolute;
+                    }
+                    &:hover {box-shadow: 0px 0px 25px #FF7D00;}
+                }
+                #idk {
+                    #bad();
+                    background-color: #D9D9D9;
+                    &::after {
+                        content: "\e812";
+                        font-family: "Material Symbols Outlined";
+                        position: absolute;
+                        color: black;
+                    }
+                    &:hover {box-shadow: 0px 0px 25px #D9D9D9;}
+                }
+                #like {
+                    #idk();
+                    background-color: #FFD600;
+                    &::after {
+                        content: "\e813";
+                        font-family: "Material Symbols Outlined";
+                        position: absolute;
+                        color: white;
+                    }
+                    &:hover {box-shadow: 0px 0px 25px #FFD600;}             
+                }
+                #mega-like {
+                    #idk;
+                    border-top-right-radius: 15px;
+                    border-bottom-right-radius: 15px;
+                    background-color: #4DB02A;
+                    &::after {
+                        content: "\e7f2";
+                        font-family: "Material Symbols Outlined";
+                        position: absolute;
+                        color: white;
+                    }
+                    &:hover {box-shadow: 0px 0px 25px #4DB02A;}
+                }
+            }
+            .level-text {
+                font-size: 0;
+                #mega-bad {
+                    font-size: 12px;
+                    height: 50px;
+                    width: 70px;
+                    border: none;
+                    background-color: transparent;
+                    color: white;
+                }
+                #bad {#mega-bad();}
+                #idk {#mega-bad();}
+                #like {#mega-bad();}
+                #mega-like {#mega-bad;}
+            }
+            p {
+                display: inline-block;
+                font-size: 10px;
+                margin: -100px 0 0 0 !important; // top right bottom left
+                padding: 0 !important;
+            }
+        }
+    }
+}
+.party-info {
+    margin-bottom: 50px;
+    text-align: center;
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+        "members eu-members rating"
+        "members gov-members vote"
+        "members gov-members map"; 
+}
+.members, .eu-members, .gov-members, .rating, .vote {
+    h2 {
+        // margin: 50px 200px 0 200px; // top right bottom left
+        margin: 50px auto;
+        width: 330px;
+        padding: 15px 0 15px 0; // top right bottom left
+        background-color: #FF7D00;
+        color: white;
+        font-size: 30px;
+        border-radius: 15px;
+    }
+    ul {
+        list-style-type: none;
+        margin: -20px auto; // top right bottom left
+        width: 300px;
+        text-align: left;
+        font-size: 20px;
+        li {
+            margin: 5px;
+            transition: 0.3s;
+            a {
+                text-decoration: none;
+                color: #000000;
+                &:hover {
+                    transition: 0.3s;
+                    color: #FF7D00;
+                }
+            }
+            &:hover {
+                transition: 0.3s;
+                cursor: pointer;
+                font-size: 21px;
+                color: #FF7D00;
+            }
+        }
+    }
+}
+.members {grid-area: members;}
+.eu-members {grid-area: eu-members;}
+.gov-members {grid-area: gov-members;}
+.rating-row {
+    .rating {grid-area: rating; }
+    .vote {
+        grid-area: vote;
+        .desktop-vote {
+            .levels {
+                font-size: 0;
+                margin: 40px 0 -5px 0; // top right bottom left
+                #mega-bad {
+                    height: 40px;
+                    width: 70px;
+                    border: none;
+                    border-top-left-radius: 15px;
+                    border-bottom-left-radius: 15px;
+                    background-color: #FF4117;
+                    &::after {
+                        content: "\f194";
+                        font-family: "Material Symbols Outlined";
+                        position: sticky !important;
+                        font-weight: 400;
+                        font-size: 30px;
+                        color: white;
+                        opacity: 0;
+                        transition: 0.2s;
+                    }
+                    &:hover {
+                        cursor: pointer;
+                        transition: all 0.5s;
+                        box-shadow: 0px 0px 25px #FF4117;
+                        &::after {
+                            opacity: 1;
+                            transition: all 0.5s;
+                        }
+                    }
+                }
+                #bad {
+                    #mega-bad();
+                    border-top-left-radius: 0;
+                    border-bottom-left-radius: 0;
+                    background-color: #FF7D00;
+                    &::after {
+                        content: "\e811";
+                        font-family: "Material Symbols Outlined";
+                        position: absolute;
+                    }
+                    &:hover {box-shadow: 0px 0px 25px #FF7D00;}
+                }
+                #idk {
+                    #bad();
+                    background-color: #D9D9D9;
+                    &::after {
+                        content: "\e812";
+                        font-family: "Material Symbols Outlined";
+                        position: absolute;
+                        color: black;
+                    }
+                    &:hover {box-shadow: 0px 0px 25px #D9D9D9;}
+                }
+                #like {
+                    #idk();
+                    background-color: #FFD600;
+                    &::after {
+                        content: "\e813";
+                        font-family: "Material Symbols Outlined";
+                        position: absolute;
+                        color: white;
+                    }
+                    &:hover {box-shadow: 0px 0px 25px #FFD600;}             
+                }
+                #mega-like {
+                    #idk;
+                    border-top-right-radius: 15px;
+                    border-bottom-right-radius: 15px;
+                    background-color: #4DB02A;
+                    &::after {
+                        content: "\e7f2";
+                        font-family: "Material Symbols Outlined";
+                        position: absolute;
+                        color: white;
+                    }
+                    &:hover {box-shadow: 0px 0px 25px #4DB02A;}
+                }
+            }
+            .level-text {
+                font-size: 0;
+                #mega-bad {
+                    font-size: 12px;
+                    height: 50px;
+                    width: 70px;
+                    border: none;
+                    background-color: transparent;
+                    color: black;
+                }
+                #bad {#mega-bad();}
+                #idk {#mega-bad();}
+                #like {#mega-bad();}
+                #mega-like {#mega-bad;}
+            }
+            p {
+                display: inline-block;
+                font-size: 10px;
+                margin: -100px 0 0 0 !important; // top right bottom left
+                padding: 0 !important;
+            }
+        }
+    }
+    .map {grid-area: map;}
+}
+
+//  ----------------------------
+.footer {
+    position: relative;
+    bottom: -50px;
+}
+//  ----------------------------
+
+// Compatibility
+@media only screen and (max-width: 385px) {
+    .party-header {
+        .header-objects {
+            .mobile-rating {h2 {font-size: 35px;}}
+            .mobile-vote {
+                .mobile-rating();
+                .levels {
+                    #mega-bad {
+                        height: 45px;
+                        width: 60px;
+                    }   
+                    #bad {#mega-bad();}
+                    #idk {#mega-bad();}
+                    #like {#mega-bad();}
+                    #mega-like {#mega-bad();}
+                }
+                .level-text {
+                    #mega-bad {
+                        height: 45px;
+                        width: 60px;
+                    }   
+                    #bad {#mega-bad();}
+                    #idk {#mega-bad();}
+                    #like {#mega-bad();}
+                    #mega-like {#mega-bad();}
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width: 1024px) { 
+    .party-header {
+        .header-objects {
+            img {float: left;}
+            h1 {
+                font-size: 50px;
+                padding: 48px 0 10px 0; // top right bottom left
+            }
+            hr {
+                margin: 0 auto !important;
+                width: 680px;
+            }
+            p {
+                font-size: 23px;
+                padding: 30px 20px 50px 20px // top right bottom left
+            }
+            .mobile-rating {display: none;}
+            .mobile-vote {.mobile-rating();}
+        }
+    }
+}
+@media only screen and (max-width: 700px) { 
+    .party-info {
+        grid-template-columns: 1fr !important; 
+        grid-template-rows: 1fr 0.5fr 0fr !important; 
+        gap: 0px 0px; 
+        grid-template-areas: 
+            "members"
+            "eu-members"
+            "gov-members" !important; 
+        .members {grid-area: members;}
+        .eu-members {grid-area: eu-members;}
+        .gov-members {grid-area: gov-members;}
+    }
+}
+
+// ----------------------------
+@media only screen and (min-width: 700px) { 
+    .footer {display: none !important;}
+}
+// ----------------------------
+
+@media only screen and (max-width: 1023px) { 
+    .party-info {
+        grid-template-columns: 1fr 1fr; 
+        grid-template-rows: 1fr 1fr; 
+        grid-template-areas: 
+            "members eu-members"
+            "members gov-members"
+            "members gov-members"; 
+        .gov-members {margin-top: -400px;}
+        .rating-row {
+            .rating {h2 {display: none;}}
+            .vote {
+                h2 {display: none;}
+                .desktop-vote {display: none;}
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1130px) { 
+    .rating-row {
+        .vote {
+            .desktop-vote {
+                .levels {
+                    #mega-bad {width: 60px !important;}
+                    #bad {#mega-bad();}
+                    #idk {#mega-bad();}
+                    #like {#mega-bad();}
+                    #mega-like {#mega-bad();}
+                }
+                .level-text {
+                    #mega-bad {
+                        font-size: 12px;
+                        width: 60px; 
+                    }
+                    #bad {#mega-bad();}
+                    #idk {#mega-bad();}
+                    #like {#mega-bad();}
+                    #mega-like {#mega-bad();}
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width: 1055px) {
+    .party-header {.header-objects {p {padding: 30px 20px 70px 20px}}} // top right bottom left
+}
+@media only screen and (min-width: 1055px) { 
+    .party-header {
+        .header-objects {
+            h1 {
+                font-size: 60px;
+                padding: 20px 0 10px 0; // top right bottom left
+            }
+            p {
+                font-size: 25px;
+                padding: 30px 20px 60px 20px // top right bottom left
+            }
+        }
+    }
+}
+@media only screen and (min-width: 1280px) {
+    .party-header {.header-objects {img {margin: 30px 30px 30px 30px;}}} // top right bottom left
+}

@@ -1,0 +1,309 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Inconsolata;
+}
+body {
+  overflow-y: scroll;
+  overflow-x: hidden !important;
+  scrollbar-color: #15616D #001524;
+  scrollbar-width: thin;
+  min-height: 100%;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: #15616D;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #001524;
+}
+body,
+html {
+  width: 100%;
+  height: 100%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+i {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.up {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background-color: #15616D;
+  bottom: 20px;
+  right: 30px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 10px;
+  transition: transform 0.2s;
+  border: none;
+}
+.up i {
+  color: #FFECD1 !important;
+  position: relative;
+  top: 9px;
+  font-size: 30px;
+}
+.up:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+body {
+  background-color: #15616D !important;
+}
+.main {
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  background-color: #FFECD1;
+  text-align: center;
+  padding: 12%;
+}
+.main .logo {
+  transition: 0.3s;
+  border-radius: 15px;
+  position: absolute;
+  top: -30%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  background-color: #001524;
+  padding: 5%;
+}
+.main .logo:hover {
+  cursor: pointer;
+}
+.main .logo:hover p {
+  color: #FF7D00;
+  cursor: pointer;
+}
+.main .logo p {
+  transition: 0.3s;
+  text-align: left;
+  color: #FFECD1;
+  font-size: 150%;
+  font-weight: bold;
+}
+.main h1 {
+  color: #001524;
+  padding: 0 0 10px 0;
+}
+.main .hr {
+  border: none;
+  border-bottom: 1px solid #001524;
+  -webkit-box-shadow: 0px 10px 13px -7px #000000, 0px 1px 3px 0px rgba(0, 0, 0, 0.62);
+  box-shadow: 0px 10px 13px -7px #000000, 0px 1px 3px 0px rgba(0, 0, 0, 0.62);
+}
+.main form {
+  padding: 20px 0 0 0;
+}
+.main form .container .material-symbols-outlined {
+  font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 48;
+}
+.main form .container i {
+  color: #FF7D00;
+  margin-top: 7%;
+  float: left;
+  width: 20px;
+}
+.main form .container input {
+  float: left;
+  margin: 10px;
+  border: none;
+  background: #D9D9D9;
+  padding: 0 0 0 15px;
+  width: 200px;
+  height: 37px;
+  border-radius: 17px;
+  transition: all 1s;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  z-index: 1;
+}
+.main form .container button {
+  transition: 0.3s;
+  margin: 20px 0 -20px 0 !important;
+  border: none;
+  background-color: #001524;
+  color: #FFECD1;
+  padding: 10px 30px 10px 30px;
+  border-radius: 17px;
+  z-index: 2;
+}
+.main form .container button:hover {
+  cursor: pointer;
+  color: #FF7D00;
+}
+.main form .container .loading {
+  display: inline-block;
+  visibility: hidden;
+}
+.main form .container .loading:after {
+  content: " ";
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: -42px auto;
+  border-radius: 100%;
+  border: 5px solid #001524;
+  animation: loading 1.2s linear infinite;
+  border-color: #001524 transparent #001524 transparent;
+}
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.main form .container .reg {
+  padding: 30px 0 0 0;
+}
+.main form .container .reg a {
+  color: #001524;
+  transition: 0.7s;
+}
+.main form .container .reg a:hover {
+  color: #FF7D00;
+}
+@media (max-height: 890px) and (max-width: 830px) {
+  .main .logo {
+    visibility: hidden;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .main {
+    padding: 15% 10% 5% 10%;
+  }
+  .main .logo {
+    visibility: visible;
+    margin-left: 70px;
+    float: left;
+    position: static;
+    width: 15%;
+    font-size: 19px;
+    padding-right: 7%;
+  }
+  .main h1 {
+    margin-right: 10px;
+    text-align: right;
+    font-size: 55px;
+  }
+  .main .hr {
+    float: right;
+    width: 335px;
+    margin: 0 0 50px 0;
+    border-bottom: 1px solid #001524;
+  }
+  .main form {
+    padding: 20px 0 0 0;
+  }
+  .main form .container .email i {
+    margin-top: 10%;
+  }
+  .main form .container .psw i {
+    margin-top: 4%;
+  }
+  .main form .container i {
+    font-size: 35px;
+    margin-right: 30px;
+  }
+  .main form .container input {
+    font-size: 20px;
+    padding: 0 0 0 20px;
+    width: 460px;
+    height: 60px;
+    border-radius: 30px;
+  }
+  .main form .container button {
+    font-size: 25px;
+    margin: 35px 0 0 0;
+    border: none;
+    background-color: #001524;
+    color: #FFECD1;
+    padding: 10px 60px 10px 60px;
+    border-radius: 35px;
+  }
+  .main form .container .loading:after {
+    width: 40px;
+    height: 40px;
+    margin: -50px auto;
+    border-radius: 100%;
+    border: 6px solid #001524;
+    border-color: #001524 transparent #001524 transparent;
+  }
+  .main form .container .reg {
+    padding: 50px 0 0 0;
+    font-size: 20px;
+  }
+}
+@media only screen and (min-width: 1329px) {
+  .main {
+    padding: 10% 5% 5% 5%;
+  }
+  .main .logo {
+    margin-left: 90px;
+    width: 20%;
+    font-size: 21px;
+    padding-right: 0;
+  }
+  .main h1 {
+    font-size: 70px;
+  }
+  .main .hr {
+    width: 420px;
+  }
+  .main form .container .email img {
+    margin-top: 9.5%;
+  }
+  .main form .container i {
+    font-size: 40px;
+    margin-right: 40px;
+  }
+  .main form .container input {
+    padding: 0 0 0 30px;
+    width: 550px;
+    height: 80px;
+    border-radius: 45px;
+    font-size: 25px;
+  }
+  .main form .container button {
+    margin-top: 50px !important;
+    padding: 20px 75px 20px 75px;
+    font-size: 30px;
+  }
+  .main form .container .loading:after {
+    width: 50px;
+    height: 50px;
+    margin: -60px auto;
+    border-radius: 100%;
+    border: 6px solid #001524;
+    border-color: #001524 transparent #001524 transparent;
+  }
+  .main form .container a:hover {
+    color: #FFECD1;
+  }
+}
+@media only screen and (min-width: 1920px) {
+  .main {
+    padding: 7% 5% 4% 5%;
+  }
+}
