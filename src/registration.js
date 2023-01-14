@@ -24,49 +24,77 @@ submitData.addEventListener('click', (e) => {
     var password = document.getElementById('password').value;
     var password_repeat = document.getElementById("password_repeat").value;  
 
-    // Validate input fields
-    // if(validate_email(email) == false ) {
-    //     console.log('Error: Elektroninis paštas neatitinka reikalavimų');
-    //     $(document).ready(function(){
-    //         $(".email input").css("border", "1px solid rgb(190, 13, 13, .8)");
-    //         $(".email input").css("filter", "drop-shadow(0 4px 4px rgb(190, 13, 13, .8)");
-    //     });
+    // Custom authentication error checks
+    var username_len = document.getElementById('username').value.length;
+    var email_len = document.getElementById('email');
+    var password_len = document.getElementById('password');
+    if(username_len < 2) {
+        console.log('Vartotojo vardas turi susidaryti bent iš 2 simbolių.');
 
-    //     // Don't run the code anymore
-    //     return
-    // } 
-    // if(validate_password(password) == false) {
-    //     console.log('Error: Slaptažodis turi būti ilgesnis nei 6 simboliai');
-    //     $(document).ready(function(){
-    //         $(".password input").css("border", "1px solid rgb(190, 13, 13, .8)");
-    //         $(".password input").css("filter", "drop-shadow(0 4px 4px rgb(190, 13, 13, .8)");
-    //     });
-
-    //     // Don't run the code anymore
-    //     return
-    // } 
-    if(validate_fields(username) == false) {
-        console.log('Error: Nėra vartotojo vardo');
+        document.getElementById("alert-text").innerHTML = "Vartotojo vardas turi susidaryti bent iš 2 simbolių.";
+        
+        $("#username").css("border", "1px solid rgb(190, 13, 13, .8)");
+        $("#username").css("filter", "drop-shadow(0 4px 4px rgb(190, 13, 13, .8)");
 
         // Don't run the code anymore
         return
-    } if(confirm_password(password, password_repeat) == false) {
-        console.log('Error: Slaptažodžiai nesutampa');
-        $(document).ready(function(){
-            $(".password input").css("border", "1px solid rgb(190, 13, 13, .8)");
-            $(".password input").css("filter", "drop-shadow(0 4px 4px rgb(190, 13, 13, .8)");
-            $(".password-repeat input").css("border", "1px solid rgb(190, 13, 13, .8)");
-            $(".password-repeat input").css("filter", "drop-shadow(0 4px 4px rgb(190, 13, 13, .8)");
-        });
+    } if(username_len > 15) {
+        console.log('Vartotojo vardas pasiekė 15 simbolių limitą.');
+
+        document.getElementById("alert-text").innerHTML = "Vartotojo vardas pasiekė 15 simbolių limitą.";
+
+        $("#username").css("border", "1px solid rgb(190, 13, 13, .8)");
+        $("#username").css("filter", "drop-shadow(0 4px 4px rgb(190, 13, 13, .8)");
 
         // Don't run the code anymore
         return
-    }
+    } else if(!(email_len && email_len.value)) {
+        console.log('Įveskite el. paštą.');
+
+        $("#email").css("border", "1px solid rgb(190, 13, 13, .8)");
+        $("#email").css("filter", "drop-shadow(0 4px 4px rgb(190, 13, 13, .8)");
+
+        // Don't run the code anymore
+        return
+    } else if(!(password_len && password_len.value)) {
+        console.log('Įveskite slaptažodį.');
+
+        $("#password").css("border", "1px solid rgb(190, 13, 13, .8)");
+        $("#password").css("filter", "drop-shadow(0 4px 4px rgb(190, 13, 13, .8)");
+
+        // Don't run the code anymore
+        return
+    } else if(!(password == password_repeat)) {
+        console.log('Slaptažodžiai nesutampa.');
+
+        document.getElementById("alert-text").innerHTML = "Slaptažodžiai nesutampa.";
+
+        $("#password").css("border", "1px solid rgb(190, 13, 13, .8)");
+        $("#password").css("filter", "drop-shadow(0 4px 4px rgb(190, 13, 13, .8)");
+        $("#password_repeat").css("border", "1px solid rgb(190, 13, 13, .8)");
+        $("#password_repeat").css("filter", "drop-shadow(0 4px 4px rgb(190, 13, 13, .8)");
+
+        // Don't run the code anymore
+        return
+    } 
 
     // Firebase authentication 
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => { // Authentication successful
         $(document).ready(function(){
+            $("#username").css("border", "1px solid transparent");
+            $("#username").css("filter", "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))");
+    
+            $("#email").css("border", "1px solid transparent");
+            $("#email").css("filter", "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))");
+    
+            $("#password").css("border", "1px solid transparent");
+            $("#password").css("filter", "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))");
+            $("#password_repeat").css("border", "1px solid transparent");
+            $("#password_repeat").css("filter", "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))");
+
+            document.getElementById("alert-text").innerHTML = "";
+            
             $("#submitData").fadeTo(100, 0);
             $('.loading')
             .delay(200)
@@ -93,19 +121,42 @@ submitData.addEventListener('click', (e) => {
     }).catch((error) => { // Authentication unsuccessful
         const errorCode = error.code;
         if(errorCode === 'auth/email-already-in-use') {
-            alert("Toks el. paštas jau užregistruotas.");
-        } else if(errorCode === 'auth/invalid-email') {
-            alert("Neteisingai įvestas el. paštas");
-            $(document).ready(function(){
-                $(".email input").css("border", "1px solid rgb(190, 13, 13, .8)");
-                $(".email input").css("filter", "drop-shadow(0 4px 4px rgb(190, 13, 13, .8)");
-            });
-        } else if(errorCode === 'auth/weak-password') {
-            alert("Slaptažodis turi susidaryti bent iš 6 simbolių");
+            console.log("Toks el. paštas jau užregistruotas.");
+
+            document.getElementById("alert-text").innerHTML = "Toks el. paštas jau užregistruotas.";
+
+            $("#email").css("border", "1px solid rgb(190, 13, 13, .8)");
+            $("#email").css("filter", "drop-shadow(0 4px 4px rgb(190, 13, 13, .8)");
+        } if(errorCode === 'auth/invalid-email') {
+            console.log("Neteisingai įvestas el. paštas.");
+
+            $("#email").css("border", "1px solid rgb(190, 13, 13, .8)");
+            $("#email").css("filter", "drop-shadow(0 4px 4px rgb(190, 13, 13, .8)");
+        } if(errorCode === 'auth/weak-password') {
+            console.log("Slaptažodis turi susidaryti bent iš 6 simbolių.");
+
+            document.getElementById("alert-text").innerHTML = "Slaptažodis turi susidaryti bent iš 6 simbolių.";
+
+            $("#password").css("border", "1px solid rgb(190, 13, 13, .8)");
+            $("#password").css("filter", "drop-shadow(0 4px 4px rgb(190, 13, 13, .8)");
         }
         const errorMessage = error.message;
         // alert(errorMessage);
     }); 
+    $(document).ready(function(){
+        $("#username").css("border", "1px solid transparent");
+        $("#username").css("filter", "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))");
+
+        $("#email").css("border", "1px solid transparent");
+        $("#email").css("filter", "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))");
+
+        $("#password").css("border", "1px solid transparent");
+        $("#password").css("filter", "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))");
+        $("#password_repeat").css("border", "1px solid transparent");
+        $("#password_repeat").css("filter", "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))");
+
+        document.getElementById("alert-text").innerHTML = "";
+    });
 });
 
 // var query = firebase.database().ref("users").orderByKey();
@@ -129,33 +180,12 @@ submitData.addEventListener('click', (e) => {
 //     }
 // }
 
-function validate_fields(field) {
-    if(field == null) {
-        return false
-    } if(field.lenght <= 0) {
-        return false
-    } else {
-        return true
-    }
-}
-    
-function confirm_password(password, password_repeat) {
-    if(password != password_repeat) {
-        return false
-    } else {
-        return true
-    }
-}
-
 // Firebase ▲-▲
 // Main ▼-▼
 
-
-// Page loading function
 $(document).ready(function(){
-    $(function(){
-        $('.main').hide().fadeIn('slow');
-    });
+    // Page loading function
+    $(function(){$('.main').hide().fadeIn('slow');});
 });
 
 import './styles/registration.css';

@@ -80,10 +80,13 @@ import './styles/member.css';
 pageEssentials()
 
 // Automatically increases comment section text input height
-function textAreaAdjust(element) {
-    element.style.height = "1px";
-    element.style.height = (25 + element.scrollHeight) + "px";
-}
+$(document).ready(function(){
+    $(".comment-content textarea").keyup(function(){
+        var scrollHeight = parseInt(this.scrollHeight);
+        $(this).css("height", "1px");
+        $(this).css("height", 25 + $(this).height(scrollHeight));
+    });
+});
 
 // Opens and closes comment section / open-discussion window
 var open_status = true;
