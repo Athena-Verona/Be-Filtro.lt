@@ -29,9 +29,6 @@ module.exports = {
             },
         ],
     },
-    experiments: {
-        topLevelAwait: true
-    },
     // optimization: {
     //     minimizer: [new TerserPlugin({
     //         extractComments: false,
