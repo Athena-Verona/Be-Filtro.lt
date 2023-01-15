@@ -9,10 +9,10 @@ import { getFirestore, collection, doc, getDocs, getDoc, query, where, onSnapsho
 import firebaseConfig from "./utils/firebase-config"
 
 // Initialize Firebase
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
 // Initialize services
-const db = getFirestore();
+const db = getFirestore(app);
 
 // Collection reference
 

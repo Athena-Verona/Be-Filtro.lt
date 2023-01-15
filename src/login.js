@@ -12,12 +12,12 @@ import { getDatabase, set, ref, update } from "firebase/database";
 import firebaseConfig from "./utils/firebase-config"
 
 // Initialize Firebase
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
 // Initialize services
 // const analytics = getAnalytics();
-const auth = getAuth();
-const database = getDatabase();
+const auth = getAuth(app);
+const database = getDatabase(app);
 
 // Event Listener
 login.addEventListener('click', (e) => {
