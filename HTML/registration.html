@@ -8,8 +8,10 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="../JS/registration.js"></script>
-        <title>Be-Filtro.lt | Registracija</title>
+        <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        <title> Be-Filtro.lt | Registracija </title>
     </head>
     <body>
         <div class="main">
@@ -19,25 +21,30 @@
             <h1 class="main-text"> Registruotis </h1>
             <div class="hr"></div>
             <form>
-            <!-- Insert registration verification here -->
+                <!-- Insert registration verification here -->
                 <div class="container">
                     <div class="name">
-                        <i class="material-symbols-outlined"> person </i>
-                        <input class="inline-block" type="text" id= "username" placeholder="Vardas" name="name" required>
-                    </div>
-                    <div class="email">
-                        <i class="material-symbols-outlined"> mail </i>
-                        <input class="inline-block" type="text" id="email" placeholder="Elektroninis paštas" name="email" required>
-                    </div>
-                    <div class="psw">
-                        <i class="material-symbols-outlined"> lock </i>
-                        <input type="password" id="password" placeholder="Slaptažodis" name="psw" required>
-                    </div>
-                    <div class="psw">
-                        <i class="material-symbols-outlined"> lock_reset </i>
-                        <input type="password" id="password_repeat"placeholder="Pakartokite slaptažodį" name="psw" required>
+                        <i class="material-symbols-outlined" id="person"> person </i>
+                        <input class="inline-block" type="text" id="username" placeholder="Vardas" name="name" required>
                     </div>
 
+                    <div class="email">
+                        <i class="material-symbols-outlined" id="mail"> mail </i>
+                        <input class="inline-block" type="text" id="email" placeholder="Elektroninis paštas" name="email" required>
+                    </div>
+
+                    <div class="psw">
+                        <i class="material-symbols-outlined" id="lock"> lock </i>
+                        <input type="password" id="password" placeholder="Slaptažodis" name="psw" required>
+                    </div>
+
+                    <div class="psw">
+                        <i class="material-symbols-outlined" id="lock_reset"> lock_reset </i>
+                        <input type="password" id="password_repeat" placeholder="Pakartokite slaptažodį" name="psw" required>
+                    </div>
+
+                    <br><span id="alert-text"></span><br>
+                    
                     <button type="submit" name="submitData" id="submitData" class="registerbtn">Registruotis</button><br>
                     <div class="loading"></div>
 
@@ -47,14 +54,8 @@
                 </div>
             </form>
         </div>
-
-        <script>
-           
-        </script>
     </body>
     <script type="module">
-        // Import the functions you need from the SDKs you need
-        // https://firebase.google.com/docs/web/setup#available-libraries
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-analytics.js";
         import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
@@ -75,7 +76,8 @@
 
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
+
+        // Initialize services
         const auth = getAuth(app);
         const database = getDatabase(app);
 
@@ -87,44 +89,77 @@
             var password = document.getElementById('password').value;
             var password_repeat = document.getElementById("password_repeat").value;  
 
+            // Custom authentication error checks
+            var username_len = document.getElementById('username').value.length;
+            var email_len = document.getElementById('email');
+            var password_len = document.getElementById('password');
+            if(username_len < 2) {
+                console.log('Vartotojo vardas turi susidaryti bent iš 2 simbolių.');
 
-        //     //validate input fields
+                document.getElementById("alert-text").innerHTML = "Vartotojo vardas turi susidaryti bent iš 2 simbolių.";
+                
+                $("#username").css("border", "1px solid rgb(190, 13, 13, .8)");
+                $("#username").css("filter", "drop-shadow(0 4px 4px rgb(190, 13, 13, .8)");
 
-          if(validate_email(email) == false )
+                // Don't run the code anymore
+                return
+            } if(username_len > 15) {
+                console.log('Vartotojo vardas pasiekė 15 simbolių limitą.');
 
-          {
-              console.log('Error: Elektroninis paštas neatitinka reikalavimų')
-              return
-              // don't run the code anymore
-          }
-          if(validate_password(password) == false)
-          {
-            console.log('Error: Slaptažodis turi būti ilgesnis nei 6 simboliai')
-              return
-              // don't run the code anymore
-          }
-          if(validate_fields(username) == false)
+                document.getElementById("alert-text").innerHTML = "Vartotojo vardas pasiekė 15 simbolių limitą.";
 
-          {
-            console.log('Error: Nėra vartotojo vardo ')
-              return
-              // don't run the code anymore
-          }
-          if(conform_password(password, password_repeat) == false)
-          {
-            console.log('Error: Parašyti slaptažodžiai nesutampa')
-            return
-          }
-        //   if(key = 1)
-        //   {
-        //     console.log('Tosk vartotojo vardas jau yra užimtas')
-        //     return
-        //   }
-            // Firebase authentication
-            
+                $("#username").css("border", "1px solid rgb(190, 13, 13, .8)");
+                $("#username").css("filter", "drop-shadow(0 4px 4px rgb(190, 13, 13, .8)");
+
+                // Don't run the code anymore
+                return
+            } else if(!(email_len && email_len.value)) {
+                console.log('Įveskite el. paštą.');
+
+                $("#email").css("border", "1px solid rgb(190, 13, 13, .8)");
+                $("#email").css("filter", "drop-shadow(0 4px 4px rgb(190, 13, 13, .8)");
+
+                // Don't run the code anymore
+                return
+            } else if(!(password_len && password_len.value)) {
+                console.log('Įveskite slaptažodį.');
+
+                $("#password").css("border", "1px solid rgb(190, 13, 13, .8)");
+                $("#password").css("filter", "drop-shadow(0 4px 4px rgb(190, 13, 13, .8)");
+
+                // Don't run the code anymore
+                return
+            } else if(!(password == password_repeat)) {
+                console.log('Slaptažodžiai nesutampa.');
+
+                document.getElementById("alert-text").innerHTML = "Slaptažodžiai nesutampa.";
+
+                $("#password").css("border", "1px solid rgb(190, 13, 13, .8)");
+                $("#password").css("filter", "drop-shadow(0 4px 4px rgb(190, 13, 13, .8)");
+                $("#password_repeat").css("border", "1px solid rgb(190, 13, 13, .8)");
+                $("#password_repeat").css("filter", "drop-shadow(0 4px 4px rgb(190, 13, 13, .8)");
+
+                // Don't run the code anymore
+                return
+            } 
+
+            // Firebase authentication 
             createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => { // Authentication successful
                 $(document).ready(function(){
+                    $("#username").css("border", "1px solid transparent");
+                    $("#username").css("filter", "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))");
+            
+                    $("#email").css("border", "1px solid transparent");
+                    $("#email").css("filter", "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))");
+            
+                    $("#password").css("border", "1px solid transparent");
+                    $("#password").css("filter", "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))");
+                    $("#password_repeat").css("border", "1px solid transparent");
+                    $("#password_repeat").css("filter", "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))");
+
+                    document.getElementById("alert-text").innerHTML = "";
+                    
                     $("#submitData").fadeTo(100, 0);
                     $('.loading')
                     .delay(200)
@@ -136,9 +171,8 @@
                     });
                 });
 
+                console.log('Paskyra sukurta!');
                 const user = userCredential.user;
-                console.log('User created!');
-
                 const d = new Date();
 
                 // Stores users to realtime database
@@ -150,77 +184,49 @@
 
                 setTimeout(function() { location.href = "index.html"; }, 2000);
             }).catch((error) => { // Authentication unsuccessful
-                // const errorCode = error.code;
-                // const errorMessage = error.message;
+                const errorCode = error.code;
+                if(errorCode === 'auth/email-already-in-use') {
+                    console.log("Toks el. paštas jau užregistruotas.");
+
+                    document.getElementById("alert-text").innerHTML = "Toks el. paštas jau užregistruotas.";
+
+                    $("#email").css("border", "1px solid rgb(190, 13, 13, .8)");
+                    $("#email").css("filter", "drop-shadow(0 4px 4px rgb(190, 13, 13, .8)");
+                } if(errorCode === 'auth/invalid-email') {
+                    console.log("Neteisingai įvestas el. paštas.");
+
+                    $("#email").css("border", "1px solid rgb(190, 13, 13, .8)");
+                    $("#email").css("filter", "drop-shadow(0 4px 4px rgb(190, 13, 13, .8)");
+                } if(errorCode === 'auth/weak-password') {
+                    console.log("Slaptažodis turi susidaryti bent iš 6 simbolių.");
+
+                    document.getElementById("alert-text").innerHTML = "Slaptažodis turi susidaryti bent iš 6 simbolių.";
+
+                    $("#password").css("border", "1px solid rgb(190, 13, 13, .8)");
+                    $("#password").css("filter", "drop-shadow(0 4px 4px rgb(190, 13, 13, .8)");
+                }
+                const errorMessage = error.message;
                 // alert(errorMessage);
             }); 
+            $(document).ready(function(){
+                $("#username").css("border", "1px solid transparent");
+                $("#username").css("filter", "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))");
+
+                $("#email").css("border", "1px solid transparent");
+                $("#email").css("filter", "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))");
+
+                $("#password").css("border", "1px solid transparent");
+                $("#password").css("filter", "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))");
+                $("#password_repeat").css("border", "1px solid transparent");
+                $("#password_repeat").css("filter", "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))");
+
+                document.getElementById("alert-text").innerHTML = "";
+            });
         });
 
-        // var query = firebase.database().ref("users").orderByKey();
-        //     query.once("value")
-        //         .then(function (snapshot) {
-        //             snapshot.forEach(function (childSnapshot) {
-        //                 var key = childSnapshot.key; // "ada"
-
-        //                 // Cancel enumeration
-        //                 return true;
-        //             });
-        //         });
-
-
-
-         function validate_email(email)
-      {
-           var expression = /^[^@]+@\w+(\.\w+)+\w$/
-          if (expression.test(email) == true)
-          {
-              //Email is good
-              return true
-          }
-          else{
-              return false
-          }
-      }
-      
-         function validate_password(password)
-      { //Firebase only accepts lenghts greater than 6
-          if (password < 7)
-          {
-              return false
-          }
-          else {
-              return true
-          }
-      }
-  
-         function validate_fields(field)
-
-      {
-        if (field == null)
-        {
-            return false
-        }
-        if (field.lenght <= 0)
-        {
-            return false
-        }
-        else 
-        {
-            return true
-        }
-      }
-        
-         function conform_password(password, password_repeat)
-         {
-            if (password != password_repeat)
-            {
-                return false
-            }
-            else
-            {
-                return true
-            }
-         }
-        
- </script>
+        $(document).ready(function(){
+            // Page loading function
+            $(function(){$('.main').hide().fadeIn('slow');});
+        });
+    </script>
 </html>

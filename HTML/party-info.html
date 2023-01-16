@@ -11,7 +11,8 @@
         <script src="https://kit.fontawesome.com/c912322992.js" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="../JS/navbar.js"></script>
-        <title>Be-Filtro.lt | Partija</title>
+
+        <title> Be-Filtro.lt | Partija </title>
     </head>
     <body>
         <!-- Address for scrolling up -->
@@ -30,12 +31,14 @@
                     <input onfocus="lightUp()" onblur="turnOff()" id="search-bar-id" type="text" placeholder="Šimonytė, TS-LKD...">
                 </div>
                 <div class="item"><a href="parties.html"> Partijos </a></div>
-                <div class="item"><a href="#"> Testas </a></div>
+                <div class="item"><a href="test.html"> Testas </a></div>
                 <div class="item">
                     <button id="profile-button"><i id="profile-icon" class="material-symbols-outlined"> badge </i> Paskyra </button>
                 </div>
                 <div class="dropdown-profile">
-                    <p> <i class="material-symbols-outlined"> manage_accounts </i> Tvarkyti </p>
+                    <p onclick="window.location='account.html'">
+                        <i class="material-symbols-outlined"> manage_accounts </i> Tvarkyti 
+                    </p>
                     <p> <i id="logout-icon" class="material-symbols-outlined"> logout </i> Atsijungti </p>
                 </div>
             </div>
@@ -77,63 +80,8 @@
         <div class="party-info">
             <div class="members">
                 <h2> Seimo nariai: </h2>
-                <ul>
-                    <li>Laima Liucija Andrikienė</li> 
-                    <!-- padaryti linkais // kurti reikia paprastai: /html/member.html?name=Laima%20Liucija%20Andrikienė  %20 = space in url"> -->
-                    <!-- galima varda ir pavarde sudet i viena kintmaji kuri veliau pridesi-->
-                    <!-- link redirects to member page 88 line: var name = document.URL.query.get('name');-->
-                    <!-- now get the name from url something line 88, reikia pasigooglint-->
-                    <!-- tada siunciam parametrus i backenda ir backendas turi informacijos kuria gali naudoti in query-->
-                    <!-- tada gali fillint data in html page-->
-                    <!-- this is filtration!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
-                    <li>Arvydas Anušauskas</li>
-                    <li>Dalia Asanavičiūtė</li>
-                    <li>Audronius Ažubalis</li>
-                    <li>Kristijonas Bartoševičius</li>
-                    <li>Agnė Bilotaitė</li>
-                    <li>Antanas Čepononis</li>
-                    <li>Justas Džiugelis</li>
-                    <li>Aistė Gedvilienė</li>
-                    <li>Jonas Gudauskas</li>
-                    <li>Irena Haase</li>
-                    <li>Sergejus Jovaiša</li>
-                    <li>Vytautas Juozapaitis</li>
-                    <li>Vytautas Kernagis</li>
-                    <li>Dainius Kreivys</li>
-                    <li>Andrius Kupčinskas</li>
-                    <li>Paulė Kuzmickienė</li>
-                    <li>Gabrielius Landsbergis</li>
-                    <li>Mindaugas Lingė</li>
-                    <li>Mykolas Majauskas</li>
-                    <li>Matas Maldeikis</li>
-                    <li>Kęstutis Masiulis</li>
-                    <li>Bronislovas Matelis</li>
-                    <li>Antanas Matulas</li>
-                    <li>Radvilė Morkūnaitė-Mikulėnienė</li>
-                    <li>Andrius Navickas</li>
-                    <li>Monika Navickienė</li>
-                    <li>Žygimantas Pavilionis</li>
-                    <li>Audrius Petrošius</li>
-                    <li>Liuda Pociūnienė</li>
-                    <li>Arvydas Pocius</li>
-                    <li>Edmundas Pupinis</li>
-                    <li>Valdas Rakutis</li>
-                    <li>Jurgis Razma</li>
-                    <li>Paulius Saudargas</li>
-                    <li>Jurgita Sejonienė</li>
-                    <li>Gintarė Skaistė</li>
-                    <li>Vilija Aleknaitė Abramikienė</li>
-                    <li>Mindaugas Skritulskas</li>
-                    <li>Linas Slušnys</li>
-                    <li>Kazys Starkevičius</li>
-                    <li>Algis Strelčiūnas</li>
-                    <li>Stasys Šedbaras</li>
-                    <li>Ingrida Šimonytė</li>
-                    <li>Jurgita Šiugždinienė</li>
-                    <li>Justinas Urbanavičius</li>
-                    <li>Arūnas Valinskas	</li>
-                    <li>Andrius Vyšniauskas</li>
-                    <li>Emanuelis Zingeris</li>
+                <ul id="members">
+                    <li><a href="member.html">Kasčiūnas???</a></li> 
                 </ul>
             </div>
             <div class="eu-members">
@@ -146,18 +94,7 @@
             </div>
             <div class="gov-members">
                 <h2> Vyriausybės nariai: </h2>
-                <ul>
-                    <li>Ingrida Šimonytė</li>
-                    <li>Agnė Bilotaitė</li>
-                    <li>Arūnas Dulkys</li>
-                    <li>Arvydas Anušauskas </li>
-                    <li>Dainius Kreivys</li>
-                    <li>Gabrielius Landsbergis</li>
-                    <li>Gintarė Skaistė</li>
-                    <li>Jurgita Šiugždinienė</li>
-                    <li>Kęstutis Navickas</li>
-                    <li>Monika Navickienė</li>
-                </ul>
+                <ul id="gov-members"></ul>
             </div>
             <div class="rating-row"> 
                 <div class="rating">
@@ -232,4 +169,69 @@
         <!-- Scroll to the top button -->
         <a href="#top" class="up"><i class="material-symbols-outlined"> keyboard_arrow_up </i></a>
     </body>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        // https://firebase.google.com/docs/web/setup#available-libraries
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+        import { getFirestore, collection, query, where, onSnapshot } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyBjTkbvIAZfgp_thRlFqVlN8NcGkV5ge1Y",
+            authDomain: "be-filtro.firebaseapp.com",
+            databaseURL: "https://be-filtro-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "be-filtro",
+            storageBucket: "be-filtro.appspot.com",
+            messagingSenderId: "200756039756",
+            appId: "1:200756039756:web:77139961e9a5d07fe0a4e9",
+            measurementId: "G-HJNDBTJ9J1"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+        // Initialize services
+        const db = getFirestore(app);
+
+        // Collection reference
+        const colRef = collection(db, 'politikas2');
+
+        // Queries
+        const q_members = query(colRef, where("partija", "==", "Tėvynės sąjunga – Lietuvos krikščionys demokratai"), where("institucija", "==", "Seimas"));
+        const q_gov_members = query(colRef, where("partija", "==", "Tėvynės sąjunga – Lietuvos krikščionys demokratai"), where("institucija", "==", "Vyriausybė"));
+
+        onSnapshot(q_gov_members, (snapshot) => {
+            let gov_members = [];
+
+            const ul_gov_members = document.getElementById("gov-members");
+
+            snapshot.docs.forEach(doc => {
+                gov_members.push(doc.id);
+            });
+            
+            for (let i = 0; i < gov_members.length; i++) {
+                const li = document.createElement("li");
+            
+                li.innerHTML = gov_members[i];
+                ul_gov_members.appendChild(li); 
+            }
+        })
+        onSnapshot(q_members, (snapshot) => {
+            let members = [];
+
+            const ul_members = document.getElementById("members");
+
+            snapshot.docs.forEach(doc => {
+                members.push(doc.id);
+            });
+            
+            for (let i = 0; i < members.length; i++) {
+                const li = document.createElement("li");
+            
+                li.innerHTML = members[i];
+                ul_members.appendChild(li); 
+            }
+        })    
+    </script>
 </html>

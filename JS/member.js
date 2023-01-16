@@ -1,44 +1,54 @@
 // Automatically increases comment section text input height
-function textAreaAdjust(element) {
-    element.style.height = "1px";
-    element.style.height = (25 + element.scrollHeight) + "px";
-}
+$(document).ready(function(){
+    $(".comment-content textarea").keyup(function(){
+        var scrollHeight = parseInt(this.scrollHeight);
+        $(this).css("height", "1px");
+        $(this).css("height", 25 + $(this).height(scrollHeight));
+    });
+});
 
 // Opens and closes comment section / open-discussion window
-function openClose_comments(open_status) {
-    if(open_status) {
-        $(document).ready(function(){
-            $(".comment-section-background").fadeTo(200, 1);
-            $(".comment-section").fadeTo(200, 1);
-            $("body").css("overflow", "hidden");
-            open_status = false;
-        });
-    } if(!open_status) {
-        $(document).ready(function(){
-            $(".comment-section-background").fadeOut(200);
-            $(".comment-section").fadeOut(200);
-            $("body").css("overflow", "scroll");
-            open_status = true;
-        });
-    }
-}
-function openClose_discussion(open_status) {
-    if(open_status) {
-        $(document).ready(function(){
-            $(".discussion-background").fadeTo(200, 1);
-            $(".open-discussion-window").fadeTo(200, 1);
-            $("body").css("overflow", "hidden");
-            open_status = false;
-        });
-    } if(!open_status) {
-        $(document).ready(function(){
-            $(".discussion-background").fadeOut(200);
-            $(".open-discussion-window").fadeOut(200);
-            $("body").css("overflow", "scroll");
-            open_status = true;
-        });
-    }
-}
+var open_status = true;
+$(document).ready(function(){
+    $(".thread, .close-section").click(function(){
+        if(open_status) {
+            $(document).ready(function(){
+                $(".comment-section-background").fadeTo(200, 1);
+                $(".comment-section").fadeTo(200, 1);
+                $("body").css("overflow", "hidden");
+                open_status = false;
+            });
+        } if(!open_status) {
+            $(document).ready(function(){
+                $(".comment-section-background").fadeOut(200);
+                $(".comment-section").fadeOut(200);
+                $("body").css("overflow", "scroll");
+                open_status = true;
+            });
+        }
+    });
+});
+
+var open_status_2 = true;
+$(document).ready(function(){
+    $(".open-discussion, .close-discussion").click(function(){
+        if(open_status_2) {
+            $(document).ready(function(){
+                $(".discussion-background").fadeTo(200, 1);
+                $(".open-discussion-window").fadeTo(200, 1);
+                $("body").css("overflow", "hidden");
+                open_status_2 = false;
+            });
+        } if(!open_status_2) {
+            $(document).ready(function(){
+                $(".discussion-background").fadeOut(200);
+                $(".open-discussion-window").fadeOut(200);
+                $("body").css("overflow", "scroll");
+                open_status_2 = true;
+            });
+        }
+    });
+});
 
 // Stuff cluttered into one jQuery block
 $(document).ready(function(){
@@ -84,35 +94,26 @@ $(document).ready(function(){
     $(".txta2").focusout(function(){
         $("#alert-symbol-disc2").css("visibility", "hidden");
     });
-
-    var name = document.URL.query.get('name');
-    
-    // name1=value1&name2=value2&...
-
-    // http://localhost:3000/html/member.html?name=Linas%20Kasciunas
-
-    $.get("http://localhost:3000/candidate?name=" + name,  function(response) {
- console.log(response)})
- // response tures viska ko reikia issitraukt duomenis is database
-
 }); 
 
 // Hides and unhides thread's text window
 var hide_status = true;
-function hideClose() {
-    if(hide_status) {
-        $(document).ready(function(){
-            $("#hide-text").css("transform", "rotate(-180deg)");
-            $(".comments-row").css("height", "620px");
-            $("#hide-this").slideToggle();
-            hide_status = false;
-        });
-    } if(!hide_status) {
-        $(document).ready(function(){
-            $("#hide-text").css("transform", "rotate(0deg)");
-            $(".comments-row").css("height", "520px");
-            $("#hide-this").slideToggle();
-            hide_status = true;
-        });
-    }
-}
+$(document).ready(function(){
+    $("#hide-text").click(function(){
+        if(hide_status) {
+            $(document).ready(function(){
+                $("#hide-text").css("transform", "rotate(-180deg)");
+                $(".comments-row").css("height", "620px");
+                $("#hide-this").slideToggle();
+                hide_status = false;
+            });
+        } if(!hide_status) {
+            $(document).ready(function(){
+                $("#hide-text").css("transform", "rotate(0deg)");
+                $(".comments-row").css("height", "520px");
+                $("#hide-this").slideToggle();
+                hide_status = true;
+            });
+        }
+    })
+});

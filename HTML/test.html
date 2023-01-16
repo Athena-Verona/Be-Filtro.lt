@@ -12,11 +12,13 @@
         <script src="https://kit.fontawesome.com/c912322992.js" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="../JS/navbar.js"></script>
-        <title>Be-Filtro.lt | Testas</title>
+
+        <title> Be-Filtro.lt | Testas </title>
     </head>
     <body>
-         <!-- Address for scrolling up -->
+        <!-- Address for scrolling up -->
         <span id="top"></span>
+        
         <!-- Navbar -->
         <div id="navbar-id" class="navbar">
             <div class="grid">
@@ -48,14 +50,15 @@
         <div class="text">
              <p> Atlikę testą galėsite sužinoti apie savo politines pažiūras pagal politinį kompasą bei tai, kurios politinės partijos yra arčiausiai jūsų pažiūrų!</p>
         </div>
+        <!-- Question 1 -->
         <div class="mobile-vote">
             <div class="quest"> Valstybė turėtų didinti mokesčius didesnes pajamas gaunantiems gyventojams, kad galėtų išplėsti socialinę paramą ir paslaugas. </div>
             <div class="levels">
-                <button id="mega-bad"></button>
-                <button id="bad"></button>
-                <button id="idk"></button>
-                <button id="like"></button>
-                <button id="mega-like"></button>
+                <button id="mega-bad" onclick="opinion_variableX(1,0)"></button>
+                <button id="bad" onclick="opinion_variableX(2,0)"></button>
+                <button id="idk" onclick="opinion_variableX(3,0)"></button>
+                <button id="like" onclick="opinion_variableX(4,0)"></button>
+                <button id="mega-like" onclick="opinion_variableX(5,0)"></button>
             </div>
             <div class="level-text">
                 <button id="mega-bad"> Visiškai <br> nesutinku </button>
@@ -65,14 +68,15 @@
                 <button id="mega-like"> Visiškai <br> sutinku</button>
             </div>
         </div>
+            <!-- Question 2 -->
         <div class="mobile-vote">
-            <div class="quest"> Valstybė turėtų kiek įmanoma mažiau kištis į ekonomiką </div>
+        <div class="quest"> Mokesčių mokėtojų pinigai neturėtų būti leidžiami menui ir sportui. </div>
             <div class="levels">
-                <button id="mega-bad"></button>
-                <button id="bad"></button>
-                <button id="idk"></button>
-                <button id="like"></button>
-                <button id="mega-like"></button>
+                <button id="mega-bad" onclick="opinion_variableX(1,0)"></button>
+                <button id="bad" onclick="opinion_variableX(2,0)"></button>
+                <button id="idk" onclick="opinion_variableX(3,0)"></button>
+                <button id="like" onclick="opinion_variableX(4,0)"></button>
+                <button id="mega-like" onclick="opinion_variableX(5,0)"></button>
             </div>
             <div class="level-text">
                 <button id="mega-bad"> Visiškai <br> nesutinku </button>
@@ -82,6 +86,330 @@
                 <button id="mega-like"> Visiškai <br> sutinku</button>
             </div>
         </div>
+        <!-- Question 3 -->
+        <div class="mobile-vote">
+            <div class="quest"> Darbo pasiūlymo atsisakęs žmogus neturėtų gauti valstybinės bedarbio išmokos.  </div>
+            <div class="levels">
+                <button id="mega-bad" onclick="opinion_variableX(1,0)"></button>
+                <button id="bad" onclick="opinion_variableX(2,0)"></button>
+                <button id="idk" onclick="opinion_variableX(3,0)"></button>
+                <button id="like" onclick="opinion_variableX(4,0)"></button>
+                <button id="mega-like" onclick="opinion_variableX(5,0)"></button>
+            </div>
+            <div class="level-text">
+                <button id="mega-bad"> Visiškai <br> nesutinku </button>
+                <button id="bad"> Labiau <br> nesutinku </button>
+                <button id="idk"> Nei sutinku, <br> nei nesutinku </button>
+                <button id="like"> Labiau <br> sutinku </button>
+                <button id="mega-like"> Visiškai <br> sutinku</button>
+            </div>
+        </div>
+        <!-- Question 4 -->
+        <div class="mobile-vote">
+            <div class="quest"> Valstybė turėtų skirti lėšų naujų darbo vietų kūrimui. </div>
+            <div class="levels">
+                <button id="mega-bad" onclick="opinion_variableX(1,1)"></button>
+                <button id="bad" onclick="opinion_variableX(2,1)"></button>
+                <button id="idk" onclick="opinion_variableX(3,1)"></button>
+                <button id="like" onclick="opinion_variableX(4,1)"></button>
+                <button id="mega-like" onclick="opinion_variableX(5,1)"></button>
+            </div>
+            <div class="level-text">
+                <button id="mega-bad"> Visiškai <br> nesutinku </button>
+                <button id="bad"> Labiau <br> nesutinku </button>
+                <button id="idk"> Nei sutinku, <br> nei nesutinku </button>
+                <button id="like"> Labiau <br> sutinku </button>
+                <button id="mega-like"> Visiškai <br> sutinku</button>
+            </div>
+        </div>
+        <!-- Question 5 -->
+        <div class="mobile-vote">
+            <div class="quest"> Importo tarifai turėtų būti taikomi norint išsaugoti darbo vietas šalies viduje.  </div>
+            <div class="levels">
+                <button id="mega-bad" onclick="opinion_variableX(1,1)"></button>
+                <button id="bad" onclick="opinion_variableX(2,1)"></button>
+                <button id="idk" onclick="opinion_variableX(3,1)"></button>
+                <button id="like" onclick="opinion_variableX(4,1)"></button>
+                <button id="mega-like" onclick="opinion_variableX(5,1)"></button>
+            </div>
+            <div class="level-text">
+                <button id="mega-bad"> Visiškai <br> nesutinku </button>
+                <button id="bad"> Labiau <br> nesutinku </button>
+                <button id="idk"> Nei sutinku, <br> nei nesutinku </button>
+                <button id="like"> Labiau <br> sutinku </button>
+                <button id="mega-like"> Visiškai <br> sutinku</button>
+            </div>
+        </div>
+        <!-- Question 6 -->
+        <div class="mobile-vote">
+            <div class="quest"> Sveikatos apsauga turėtų būti nemokama. </div>
+            <div class="levels">
+                <button id="mega-bad" onclick="opinion_variableX(1,1)"></button>
+                <button id="bad" onclick="opinion_variableX(2,1)"></button>
+                <button id="idk" onclick="opinion_variableX(3,1)"></button>
+                <button id="like" onclick="opinion_variableX(4,1)"></button>
+                <button id="mega-like" onclick="opinion_variableX(5,1)"></button>
+            </div>
+            <div class="level-text">
+                <button id="mega-bad"> Visiškai <br> nesutinku </button>
+                <button id="bad"> Labiau <br> nesutinku </button>
+                <button id="idk"> Nei sutinku, <br> nei nesutinku </button>
+                <button id="like"> Labiau <br> sutinku </button>
+                <button id="mega-like"> Visiškai <br> sutinku</button>
+            </div>
+        </div>
+        <!-- Question 7 -->
+        <div class="mobile-vote">
+            <div class="quest"> Valstybė turėtų didinti mokesčius skirdama lėšas kovai su klimato kaita. </div>
+            <div class="levels">
+                <button id="mega-bad" onclick="opinion_variableX(1,1)"></button>
+                <button id="bad" onclick="opinion_variableX(2,1)"></button>
+                <button id="idk" onclick="opinion_variableX(3,1)"></button>
+                <button id="like" onclick="opinion_variableX(4,1)"></button>
+                <button id="mega-like" onclick="opinion_variableX(5,1)"></button>
+            </div>
+            <div class="level-text">
+                <button id="mega-bad"> Visiškai <br> nesutinku </button>
+                <button id="bad"> Labiau <br> nesutinku </button>
+                <button id="idk"> Nei sutinku, <br> nei nesutinku </button>
+                <button id="like"> Labiau <br> sutinku </button>
+                <button id="mega-like"> Visiškai <br> sutinku</button>
+            </div>
+        </div>
+        <!-- Question 8 -->
+        <div class="mobile-vote">
+            <div class="quest"> Valstybė neturėtų nustatyti minimalios algos. </div>
+            <div class="levels">
+                <button id="mega-bad" onclick="opinion_variableX(1,0)"></button>
+                <button id="bad" onclick="opinion_variableX(2,0)"></button>
+                <button id="idk" onclick="opinion_variableX(3,0)"></button>
+                <button id="like" onclick="opinion_variableX(4,0)"></button>
+                <button id="mega-like" onclick="opinion_variableX(5,0)"></button>
+            </div>
+            <div class="level-text">
+                <button id="mega-bad"> Visiškai <br> nesutinku </button>
+                <button id="bad"> Labiau <br> nesutinku </button>
+                <button id="idk"> Nei sutinku, <br> nei nesutinku </button>
+                <button id="like"> Labiau <br> sutinku </button>
+                <button id="mega-like"> Visiškai <br> sutinku</button>
+            </div>
+        </div> 
+        <!-- Question 9 -->
+        <div class="mobile-vote">
+            <div class="quest"> Valstybė turėtų didinti mokesčius didesnes pajamas gaunantiems gyventojams. </div>
+            <div class="levels">
+                <button id="mega-bad" onclick="opinion_variableX(1,1)"></button>
+                <button id="bad" onclick="opinion_variableX(2,1)"></button>
+                <button id="idk" onclick="opinion_variableX(3,1)"></button>
+                <button id="like" onclick="opinion_variableX(4,1)"></button>
+                <button id="mega-like" onclick="opinion_variableX(5,1)"></button>
+            </div>
+            <div class="level-text">
+                <button id="mega-bad"> Visiškai <br> nesutinku </button>
+                <button id="bad"> Labiau <br> nesutinku </button>
+                <button id="idk"> Nei sutinku, <br> nei nesutinku </button>
+                <button id="like"> Labiau <br> sutinku </button>
+                <button id="mega-like"> Visiškai <br> sutinku</button>
+            </div>
+        </div>
+        <!-- Question 10 -->
+        <div class="mobile-vote">
+            <div class="quest"> Įmonėms turėtų būti leidžiama laisvai atleisti darbuotojus.  </div>
+            <div class="levels">
+                <button id="mega-bad" onclick="opinion_variableX(1,0)"></button>
+                <button id="bad" onclick="opinion_variableX(2,0)"></button>
+                <button id="idk" onclick="opinion_variableX(3,0)"></button>
+                <button id="like" onclick="opinion_variableX(4,0)"></button>
+                <button id="mega-like" onclick="opinion_variableX(5,0)"></button>
+            </div>
+            <div class="level-text">
+                <button id="mega-bad"> Visiškai <br> nesutinku </button>
+                <button id="bad"> Labiau <br> nesutinku </button>
+                <button id="idk"> Nei sutinku, <br> nei nesutinku </button>
+                <button id="like"> Labiau <br> sutinku </button>
+                <button id="mega-like"> Visiškai <br> sutinku</button>
+            </div>
+        </div>      
+        <!-- Question 11 --> 
+        <div class="mobile-vote">
+            <div class="quest"> Kai kurios rasės turi pranašumų prieš kitas rases.  </div>
+            <div class="levels">
+                <button id="mega-bad" onclick="opinion_variableY(1,0)"></button>
+                <button id="bad" onclick="opinion_variableY(2,0)"></button>
+                <button id="idk" onclick="opinion_variableY(3,0)"></button>
+                <button id="like" onclick="opinion_variableY(4,0)"></button>
+                <button id="mega-like" onclick="opinion_variableY(5,0)"></button>
+            </div>
+            <div class="level-text">
+                <button id="mega-bad"> Visiškai <br> nesutinku </button>
+                <button id="bad"> Labiau <br> nesutinku </button>
+                <button id="idk"> Nei sutinku, <br> nei nesutinku </button>
+                <button id="like"> Labiau <br> sutinku </button>
+                <button id="mega-like"> Visiškai <br> sutinku</button>
+            </div>
+        </div>       
+        <!-- Question 12 -->
+        <div class="mobile-vote">
+            <div class="quest"> Eutanazija turėtų būti legali. </div>
+            <div class="levels">
+                <button id="mega-bad" onclick="opinion_variableY(1,1)"></button>
+                <button id="bad" onclick="opinion_variableY(2,1)"></button>
+                <button id="idk" onclick="opinion_variableY(3,1)"></button>
+                <button id="like" onclick="opinion_variableY(4,1)"></button>
+                <button id="mega-like" onclick="opinion_variableY(5,1)"></button>
+            </div>
+            <div class="level-text">
+                <button id="mega-bad"> Visiškai <br> nesutinku </button>
+                <button id="bad"> Labiau <br> nesutinku </button>
+                <button id="idk"> Nei sutinku, <br> nei nesutinku </button>
+                <button id="like"> Labiau <br> sutinku </button>
+                <button id="mega-like"> Visiškai <br> sutinku</button>
+            </div>
+        </div> 
+        <!-- Question 13 -->
+        <div class="mobile-vote">
+            <div class="quest"> Lietuvai būtų pravartu pasitraukti iš Europos Sąjungoa </div>
+            <div class="levels">
+                <button id="mega-bad" onclick="opinion_variableY(1,0)"></button>
+                <button id="bad" onclick="opinion_variableY(2,0)"></button>
+                <button id="idk" onclick="opinion_variableY(3,0)"></button>
+                <button id="like" onclick="opinion_variableY(4,0)"></button>
+                <button id="mega-like" onclick="opinion_variableY(5,0)"></button>
+            </div>
+            <div class="level-text">
+                <button id="mega-bad"> Visiškai <br> nesutinku </button>
+                <button id="bad"> Labiau <br> nesutinku </button>
+                <button id="idk"> Nei sutinku, <br> nei nesutinku </button>
+                <button id="like"> Labiau <br> sutinku </button>
+                <button id="mega-like"> Visiškai <br> sutinku</button>
+            </div>
+        </div>             
+        <!-- Question 14 -->
+        <div class="mobile-vote">
+            <div class="quest"> Tos pačios lyties poros turėtų turėti teisę susituokti ir įsivaikinti. </div>
+            <div class="levels">
+                <button id="mega-bad" onclick="opinion_variableY(1,1)"></button>
+                <button id="bad" onclick="opinion_variableY(2,1)"></button>
+                <button id="idk" onclick="opinion_variableY(3,1)"></button>
+                <button id="like" onclick="opinion_variableY(4,1)"></button>
+                <button id="mega-like" onclick="opinion_variableY(5,1)"></button>
+            </div>
+            <div class="level-text">
+                <button id="mega-bad"> Visiškai <br> nesutinku </button>
+                <button id="bad"> Labiau <br> nesutinku </button>
+                <button id="idk"> Nei sutinku, <br> nei nesutinku </button>
+                <button id="like"> Labiau <br> sutinku </button>
+                <button id="mega-like"> Visiškai <br> sutinku</button>
+            </div>
+        </div>
+        <!-- Question 15 -->
+        <div class="mobile-vote">
+            <div class="quest"> Valstybė turi teisę teikti prioritetą savo religijai. ( </div>
+            <div class="levels">
+                <button id="mega-bad" onclick="opinion_variableY(1,0)"></button>
+                <button id="bad" onclick="opinion_variableY(2,0)"></button>
+                <button id="idk" onclick="opinion_variableY(3,0)"></button>
+                <button id="like" onclick="opinion_variableY(4,0)"></button>
+                <button id="mega-like" onclick="opinion_variableY(5,0)"></button>
+            </div>
+            <div class="level-text">
+                <button id="mega-bad"> Visiškai <br> nesutinku </button>
+                <button id="bad"> Labiau <br> nesutinku </button>
+                <button id="idk"> Nei sutinku, <br> nei nesutinku </button>
+                <button id="like"> Labiau <br> sutinku </button>
+                <button id="mega-like"> Visiškai <br> sutinku</button>
+            </div>
+        </div>             
+        <!-- Question 16 -->
+        <div class="mobile-vote">
+            <div class="quest"> Imigracija turėtų būti reguliuojama ir mažinama. </div>
+            <div class="levels">
+                <button id="mega-bad" onclick="opinion_variableY(1,0)"></button>
+                <button id="bad" onclick="opinion_variableY(2,0)"></button>
+                <button id="idk" onclick="opinion_variableY(3,0)"></button>
+                <button id="like" onclick="opinion_variableY(4,0)"></button>
+                <button id="mega-like" onclick="opinion_variableY(5,0)"></button>
+            </div>
+            <div class="level-text">
+                <button id="mega-bad"> Visiškai <br> nesutinku </button>
+                <button id="bad"> Labiau <br> nesutinku </button>
+                <button id="idk"> Nei sutinku, <br> nei nesutinku </button>
+                <button id="like"> Labiau <br> sutinku </button>
+                <button id="mega-like"> Visiškai <br> sutinku</button>
+            </div>
+        </div>             
+        <!-- Question 17 -->
+        <div class="mobile-vote">
+            <div class="quest"> Yra atvejų, kuomet mirties bausmė yra pateisinama </div>
+            <div class="levels">
+                <button id="mega-bad" onclick="opinion_variableY(1,0)"></button>
+                <button id="bad" onclick="opinion_variableY(2,0)"></button>
+                <button id="idk" onclick="opinion_variableY(3,0)"></button>
+                <button id="like" onclick="opinion_variableY(4,0)"></button>
+                <button id="mega-like" onclick="opinion_variableY(5,0)"></button>
+            </div>
+            <div class="level-text">
+                <button id="mega-bad"> Visiškai <br> nesutinku </button>
+                <button id="bad"> Labiau <br> nesutinku </button>
+                <button id="idk"> Nei sutinku, <br> nei nesutinku </button>
+                <button id="like"> Labiau <br> sutinku </button>
+                <button id="mega-like"> Visiškai <br> sutinku</button>
+            </div>
+        </div>         
+        <!-- Question 18 -->
+        <div class="mobile-vote">
+            <div class="quest"> Marihuanos vartojimas laisvalaikio tikslais turėtų būti legalus. </div>
+            <div class="levels">
+                <button id="mega-bad" onclick="opinion_variableY(1,1)"></button>
+                <button id="bad" onclick="opinion_variableY(2,1)"></button>
+                <button id="idk" onclick="opinion_variableY(3,1)"></button>
+                <button id="like" onclick="opinion_variableY(4,1)"></button>
+                <button id="mega-like" onclick="opinion_variableY(5,1)"></button>
+            </div>
+            <div class="level-text">
+                <button id="mega-bad"> Visiškai <br> nesutinku </button>
+                <button id="bad"> Labiau <br> nesutinku </button>
+                <button id="idk"> Nei sutinku, <br> nei nesutinku </button>
+                <button id="like"> Labiau <br> sutinku </button>
+                <button id="mega-like"> Visiškai <br> sutinku</button>
+            </div>
+        </div>
+        <!-- Question 19 -->
+        <div class="mobile-vote">
+            <div class="quest"> Kalinių reabilitacija yra svarbesnė nei bausmės atlikimas.</div>
+            <div class="levels">
+                <button id="mega-bad" onclick="opinion_variableY(1,1)"></button>
+                <button id="bad" onclick="opinion_variableY(2,1)"></button>
+                <button id="idk" onclick="opinion_variableY(3,1)"></button>
+                <button id="like" onclick="opinion_variableY(4,1)"></button>
+                <button id="mega-like" onclick="opinion_variableY(5,1)"></button>
+            </div>
+            <div class="level-text">
+                <button id="mega-bad"> Visiškai <br> nesutinku </button>
+                <button id="bad"> Labiau <br> nesutinku </button>
+                <button id="idk"> Nei sutinku, <br> nei nesutinku </button>
+                <button id="like"> Labiau <br> sutinku </button>
+                <button id="mega-like"> Visiškai <br> sutinku</button>
+            </div>
+        </div>   
+        <!-- Question 20 -->  
+        <div class="mobile-vote">
+            <div class="quest"> Abortas turi būti legalus pasirikimas. </div>
+            <div class="levels">
+                <button id="mega-bad" onclick="opinion_variableANSWER()"></button>
+                <button id="bad" onclick="opinion_variableY(2,1)"></button>
+                <button id="idk" onclick="opinion_variableY(3,1)"></button>
+                <button id="like" onclick="opinion_variableY(4,1)"></button>
+                <button id="mega-like" onclick="opinion_variableY(5,1)"></button>
+            </div>
+            <div class="level-text">
+                <button id="mega-bad"> Visiškai <br> nesutinku </button>
+                <button id="bad"> Labiau <br> nesutinku </button>
+                <button id="idk"> Nei sutinku, <br> nei nesutinku </button>
+                <button id="like"> Labiau <br> sutinku </button>
+                <button id="mega-like"> Visiškai <br> sutinku</button>
+            </div>
+        </div>     
         <!-- Footer -->
         <div class="footer">
             <p> Šis puslapis sukurtas VU Matematikos ir Informatikos Fakulteto pirmo kurso “Informacinių sistemų inžinerijos” programos studentų sie

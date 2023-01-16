@@ -1,0 +1,8 @@
+$("img").click(function(){
+    // $("body").css("background-size", "cover")
+    if($(this).attr('img-id') == 1) {$("body").css("background-image", "url('https://i.kym-cdn.com/photos/images/newsfeed/001/366/543/eb3.jpg')")}
+    else if($(this).attr('img-id') == 2) {$("body").css("background-image", "url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia1.tenor.com%2Fimages%2F10abbea9fcc7f0924c2355a5150c2982%2Ftenor.gif%3Fitemid%3D3521938&f=1&nofb=1&ipt=ae08579d973abeb64a2ca04769add07b19833fa7720a26278830e863282b8801&ipo=images')")}
+    else if($(this).attr('img-id') == 3) {$("body").css("background-image", "url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F3a%2F8c%2Fd5%2F3a8cd52af76df7e2076170a9e2099911.jpg&f=1&nofb=1&ipt=28e5a6a9a42e2768b0c1b5e745ac429633a74cf3556912141c6598a2adc47a54&ipo=images')")}
+    else if($(this).attr('img-id') == 4) {$("body").css("background-image", "url('https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimages3.memedroid.com%2Fimages%2FUPLOADED405%2F5d425bfb1cc2a.jpeg&f=1&nofb=1&ipt=986731d0a039d945f13954e4f1ac0053da35ad44d022e9d855bac555702b2315&ipo=images')")}
+    else if($(this).attr('img-id') == 5) {$("body").css("background-image", "url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.tenor.com%2Fimages%2Fc6de226cd714cd74e56d8114b7dc919e%2Ftenor.gif&f=1&nofb=1&ipt=2252c97d851b8318a8bedf1680199ea2d57fb554923a89e7aebed2e846f426c1&ipo=images')")}
+})
