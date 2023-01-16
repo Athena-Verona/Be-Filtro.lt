@@ -32,7 +32,7 @@ for(let i = 0; i < titles.length; i++) {
 
 function template(card) {
     return `
-        <div id="party-info">
+        <div id="party-info" onclick="location.href='party-info.html';">
             <div class="top-text">
                 <div class="img"><img src="${card.image}"></div>
                 <div class="h"><h1> ${card.title} </h1></div>
