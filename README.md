@@ -1,32 +1,41 @@
-# Be-Filtro.lt
-Nuostabiausias Komparcho projektas. komanda žvaigždžių. originali objektyvi idėja. sveiki atvykę į Nr1 politnio aktyvumo puslapį Lietuvoje (jau greit)
+# Be-Filtro.lt (webpack)
+Full webpack integration for module support
 
+## Run Locally
 
-[Verse 1]
-Zhēn qíng xiàng cǎo yuán guǎng kuò
-Céng céng fēng yǔ bù néng zǔ gé
-Zǒng yǒu yún kāi rì chū shí hoù
-Wàn zhàng yáng guāng zhào yào nǐ wǒ
+- Download the project
 
-[Verse 2]
-Zhēn qíng xiàng méi huā kāi guò
-Lěng lěng bīng xuě bù néng yān mò
-Jiù zài zuì lěng zhī tóu zhàn fàng
-Kàn jiàn chūn tiān zǒu xiàng nǐ wǒ
-[Chorus]
-Xuě huā piāo piāo běi fēng xiāo xiāo
-Tiān dì yí piàn cāng máng
-Yì jiǎn hán méi ào lì xuě zhōng
-Zhǐ wéi yī rén piāo xiāng
-Ài wǒ suǒ ài wú yuàn wú huǐ
-Cǐ qíng cháng liú xīn jiān
+![image](https://user-images.githubusercontent.com/80284319/212207339-9f997429-5e88-4adf-bf5e-3832f4e79c3c.png)
 
-[Instumental Solo]
+![Untitled](https://user-images.githubusercontent.com/80284319/212207820-77b8fa6c-186c-426d-935c-ce32e0ed5ba1.png)
 
-[Chorus]
-Xuě huā piāo piāo běi fēng xiāo xiāo
-Tiān dì yí piàn cāng máng
-Yì jiǎn hán méi ào lì xuě zhōng
-Zhǐ wéi yī rén piāo xiāng
-Ài wǒ suǒ ài wú yuàn wú huǐ
-Cǐ qíng cháng liú xīn jiān
+- Go to the project directory and open your default terminal
+
+```bash
+  cd directory
+```
+ (Or open the downloaded repository in Visual Studio Code and launch the terminal from there)
+
+- Install dependencies
+
+```bash
+  npm init -y
+```
+```bash
+  npm i -D webpack webpack-cli
+```
+```bash
+  npm i -D css-loader
+```
+```bash
+  npm i -D style-loader
+```
+```bash
+  npm i -D less less-loader
+```
+
+- Start the server
+
+```bash
+  npm run build
+```

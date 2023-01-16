@@ -1,0 +1,61 @@
+// compress: true
+
+// Main style
+@import "main-style";
+
+// Navbar style
+@import "navbar-style";
+
+// Footer style
+@import "footer-style";
+
+// Misc style
+body {background-color: #FFECD1 !important;}
+h1 {
+    padding: 10px;
+    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+    text-align: center;
+    font-size: 5.5rem;
+    color: #ef3550;
+    letter-spacing: 8px;
+    text-shadow: 1px 0 #f48fb1, 2px 0 #7e57c2, 3px 0 #2196f3, 4px 0 #26c6da, 5px 0 #43a047, 6px 0 #eeff41, 7px 0 #f9a825, 8px 0 #ff5722, -1px 0 #f48fb1, -2px 0 #7e57c2, -3px 0 #2196f3, -4px 0 #26c6da, -5px 0 #43a047, -6px 0 #eeff41, -7px 0 #f9a825, -8px 0 #ff5722;
+    animation: rainbow 1s infinite; 
+}
+@keyframes rainbow{
+    0%{color: orange;}  
+    10%{color: purple;} 
+    20%{color: red;}
+    30%{color: CadetBlue;}
+    40%{color: yellow;}
+    50%{color: coral;}
+    60%{color: green;}
+    70%{color: cyan;}
+    80%{color: DeepPink;}
+    90%{color: DodgerBlue;}
+    100%{color: orange;}
+  }
+.a1 {
+    margin: 100px;
+    .cat {
+        margin-right: 50px;
+        float: left;
+        img {
+            width: 400px;
+        }
+    }
+    .text {
+        text-align: justify;
+        font-size: 20px;
+        span {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 100px;
+        }
+        hr {border: 1px solid #15616D;}
+    }
+}
+.incoming-elections {
+    background-color: #001524;
+}
+.footer {
+    margin-top: 200px;
+}
